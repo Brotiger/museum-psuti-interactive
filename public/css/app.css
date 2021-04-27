@@ -1,0 +1,76 @@
+.menu .btn{
+    width: 100%;
+    height: 100%;
+    background: #7799dd;
+    box-shadow: 0 0 1.7vw #7799dd;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+}
+header .col{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header i, .tools i{
+    color: #7799dd;
+}
+.menu .btn:hover{
+    box-shadow: inset .1vw .1vw 1.7vw #3d5d9c;
+    transition: 1s;
+}
+.menu .col{
+    padding: 1vw;
+}
+body{
+    background-color: #f3f4f6;
+    font-size: .9vw;
+}
+header{
+    font-weight: 600;
+    color: #7799dd;
+    background-color: #e6eeff;
+    font-size: 2vw;
+}
+.dbList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dbList img{
+    width: 5vw;
+}
+.dbList > .emp 
+{
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 1.7vw #aaaaaa;
+    color: #4b4b4b;
+    border-radius: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-columns: auto auto;
+    cursor: pointer;
+}
+
+.dbList .emp .info{
+    margin: 1vw;
+}
+
+.dbList .emp .info > div{
+    word-wrap: normal;
+}
+
+.tools > div{
+    display: inline;
+    font-size: 2vw;
+    font-weight: 600;
+    color: #7799dd;
+}
+
