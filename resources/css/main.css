@@ -30,46 +30,48 @@ header i, .tools i{
 }
 body{
     background-color: #f3f4f6;
-    font-size: .9vw;
+    font-size: 1.5vw;
+    color: rgb(95, 95, 95);
 }
-header{
+
+h1{
+    font-size: 2vw;
+}
+
+header, header h1{
     font-weight: 600;
     color: #7799dd;
     background-color: #e6eeff;
     font-size: 2vw;
 }
 .dbList{
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+input[type~="text"], input[type~="password"], input[type~="date"], input[type~="select"], button i{
+    font-size: 1.5vw;
+    color: rgb(95, 95, 95);
+}
+
+button i{
+    color: #fff;
+}
+
+th, td{
+    color: rgb(95, 95, 95);
+}
+
+.pagination{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
-.dbList img{
-    width: 5vw;
-}
-.dbList > .emp 
-{
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 0 1.7vw #aaaaaa;
-    color: #4b4b4b;
-    border-radius: 1vw;
-    margin: 1vw;
-    display: grid;
-    grid-template-columns: auto auto;
-    cursor: pointer;
+
+header a{
+    color: #7799dd;
+    text-decoration: none;
 }
 
-.dbList .emp .info{
-    margin: 1vw;
-}
-
-.dbList .emp .info > div{
-    word-wrap: normal;
-}
-
-.tools > div{
-    display: inline;
-    font-size: 2vw;
-    font-weight: 600;
+header a:hover{
     color: #7799dd;
 }
