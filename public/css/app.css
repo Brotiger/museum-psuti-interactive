@@ -75,9 +75,20 @@ header a{
 header a:hover{
     color: #7799dd;
 }
+a.btn{
+    font-size: 1.5vw;
+    background: #7799dd;
+    box-shadow: 0 0 1.7vw #7799dd;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 1vw;
+    padding: 1vw;
+}
 
-thead input{
-    display: inline-block;
+a.btn:hover{
+    box-shadow: inset .1vw .1vw 1.7vw #3d5d9c;
+    color: #fff;
 }
 
  .preloader {

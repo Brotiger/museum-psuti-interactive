@@ -14,13 +14,13 @@
                         <th>Фамилия</th>
                         <th>Имя</th>
                         <th>Отчество</th>
-                        <th colspan="4">Дата рождения</th>
+                        <th colspan="4">Дата приема на работу</th>
                     </tr>
                     <tr>
                         <th><input type="text" class="form-control" placeholder="Фамилия" filter-field id="lastName" autocomplete="off"></th>
                         <th><input type="text" class="form-control" placeholder="Имя" filter-field id="firstName" autocomplete="off"></th>
                         <th><input type="text" class="form-control" placeholder="Отчество" filter-field id="secondName" autocomplete="off"></th>
-                        <th><input type="date" class="form-control mb-1" placeholder="С:" filter-field id="dateBirthdayFrom"></th><th><input type="date" class="form-control" placeholder="По:" filter-field id="dateBirthdayTo"></th>
+                        <th><input type="date" class="form-control mb-1" placeholder="С:" filter-field id="hiredFrom"></th><th><input type="date" class="form-control" placeholder="По:" filter-field id="hiredTo"></th>
                         <th><button class="form-control btn btn-danger mb-1" id="reset"><i class="bi bi-arrow-counterclockwise"></i></button></th><th><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
                     </tr>
                 </thead>

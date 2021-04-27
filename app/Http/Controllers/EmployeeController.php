@@ -68,7 +68,7 @@ class EmployeeController extends Controller
         if($request->input("hiredFrom") != null) $filter[] = ["hired", ">=", $request->input("hiredFrom")];
         if($request->input("hiredTo") != null) $filter[] = ["hired", "<", $request->input("hiredTo")];
 
-        $employees = Employee::where($filter)->orderBy("firstName")->paginate(2);
+        $employees = Employee::where($filter)->orderBy("firstName")->paginate(3);
 
         if($request->ajax()){
             return view('filters.employeesList', [
