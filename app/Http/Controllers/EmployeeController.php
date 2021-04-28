@@ -58,26 +58,40 @@ class EmployeeController extends Controller
 
     public function employees_list(Request $request){
         $filter = [];
-        if($request->input("firstName") != null) $filter[] = ["firstName", "like", '%' . $request->input("firstName") . '%'];
-        if($request->input("lastName") != null) $filter[] = ["lastName", "like", '%' . $request->input("lastName") . '%'];
-        if($request->input("secondName") != null) $filter[] = ["secondName", "like", '%' . $request->input("secondName") . '%'];
-        if($request->input("dateBirthdayFrom") != null) $filter[] = ["dateBirthday", ">=", $request->input("dateBirthdayFrom")];
-        if($request->input("dateBirthdayTo") != null) $filter[] = ["dateBirthday", "<", $request->input("dateBirthdayTo")];
-        if($request->input("firedFrom") != null) $filter[] = ["fired", ">=", $request->input("firedFrom")];
-        if($request->input("firedTo") != null) $filter[] = ["fired", "<", $request->input("firedTo")];
-        if($request->input("hiredFrom") != null) $filter[] = ["hired", ">=", $request->input("hiredFrom")];
-        if($request->input("hiredTo") != null) $filter[] = ["hired", "<", $request->input("hiredTo")];
+        $next_query = [
+            'lastName' => '',
+            'firstName' => '',
+            'secondName' => '',
+            'firedFrom' => '',
+            'firedTo' => '',
+        ];
+
+        if($request->input("lastName") != null){
+            $filter[] = ["lastName", "like", '%' . $request->input("lastName") . '%'];
+            $next_query['lastName'] = $request->input("lastName");
+        }
+        if($request->input("firstName") != null){
+            $filter[] = ["firstName", "like", '%' . $request->input("firstName") . '%'];
+            $next_query['firstName'] = $request->input("firstName");
+        }
+        if($request->input("secondName") != null){
+            $filter[] = ["secondName", "like", '%' . $request->input("secondName") . '%'];
+            $next_query['secondName'] = $request->input("secondName");
+        }
+        if($request->input("firedFrom") != null){
+            $filter[] = ["fired", ">=", $request->input("firedFrom")];
+            $next_query['firedFrom'] = $request->input("firedFrom");
+        }
+        if($request->input("firedTo") != null){
+            $filter[] = ["fired", "<", $request->input("firedTo")];
+            $next_query['firedTo'] = $request->input("firedTo");
+        }
 
         $employees = Employee::where($filter)->orderBy("firstName")->paginate(3);
 
-        if($request->ajax()){
-            return view('filters.employeesList', [
-                'employees' => $employees
-            ])->render();
-        }
-
         return view('employeesList', [
             'employees' => $employees,
+            'next_query' => $next_query,
             'name' => 'ПГУТИ'
         ]);
     }

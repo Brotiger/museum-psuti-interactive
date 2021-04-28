@@ -3,6 +3,6 @@
         <td>{{ $employee->lastName }}</td>
         <td>{{ $employee->firstName }}</td>
         <td>{{ $employee->secondName }}</td>
-        <td>{{ $employee->hired }}</td>
+        <td colspan="4">{{ $employee->hired }}</td>
     </tr>
 @endforeach

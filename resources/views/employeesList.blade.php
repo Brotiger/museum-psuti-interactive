@@ -3,7 +3,6 @@
 @section('content')
     <div class="container-fluid">
         <div class="mt-5 dbList">
-            @if($employees->count() > 0)
             <div class="mb-1 text-center">
                 <h1>Список сотрудников {{ $name }}</h1>
                 <span>Для того что бы просмотреть подробную информацию о сотруднике нажмите на него</span>
@@ -17,13 +16,16 @@
                         <th colspan="4">Дата приема на работу</th>
                     </tr>
                     <tr>
-                        <th><input type="text" class="form-control" placeholder="Фамилия" filter-field id="lastName" autocomplete="off"></th>
-                        <th><input type="text" class="form-control" placeholder="Имя" filter-field id="firstName" autocomplete="off"></th>
-                        <th><input type="text" class="form-control" placeholder="Отчество" filter-field id="secondName" autocomplete="off"></th>
-                        <th><input type="date" class="form-control mb-1" placeholder="С:" filter-field id="hiredFrom"></th><th><input type="date" class="form-control" placeholder="По:" filter-field id="hiredTo"></th>
-                        <th><button class="form-control btn btn-danger mb-1" id="reset"><i class="bi bi-arrow-counterclockwise"></i></button></th><th><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
+                        <form method="GET" action="{{route('employees_list')}}">
+                            <th><input filter-field type="text" class="form-control" placeholder="Фамилия" name="lastName" autocomplete="off" value="{{ request()->input('lastName') }}"></th>
+                            <th><input filter-field type="text" class="form-control" placeholder="Имя" name="firstName" autocomplete="off" value="{{ request()->input('firstName') }}"></th>
+                            <th><input filter-field type="text" class="form-control" placeholder="Отчество" name="secondName" autocomplete="off" value="{{ request()->input('secondName') }}"></th>
+                            <th><input filter-field type="date" class="form-control" placeholder="С:" name="hiredFrom" value="{{ request()->input('hiredFrom') }}"></th><th><input type="date" class="form-control" placeholder="По:" filter-field id="hiredTo" value="{{ request()->input('hiredTo') }}"></th>
+                            <th><button class="form-control btn btn-danger" type="reset" id="resetButton"><i class="bi bi-arrow-counterclockwise"></i></button></th><th><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
+                        </form>
                     </tr>
                 </thead>
+                @if($employees->count() > 0)
                 <tbody id="employeesTable">
                     @foreach($employees as $employee)
                         <tr class="recordRow" employee-id="{{ $employee->id }}">
@@ -34,70 +36,21 @@
                         </tr>
                     @endforeach
                 </tbody>
+                @endif
             </table>
-            @else
-            <p>
-                Ничего не найдено
-            </p>
+            @if($employees->count() == 0)
+            <p class="text-center mt-5">Ничего не найдено</p>
             @endif
         </div>
-        {{ $employees->links('vendor.pagination.bootstrap-4') }}
+        {{ $employees->appends($next_query)->links('vendor.pagination.bootstrap-4') }}
     </div>
 @endsection
 @section('custom_js')
-    <script>
-        $(document).ready(function(){
-            $('#employeesTable').delegate('.recordRow', 'click', function(){
-                let empId = $(this).attr('employee-id')
-                window.location.href = 'edit_employee' + '/' + empId;
-            });
-
-            $('#search').on('click', function(){
-                startLoading();
-                var formData = {};
-
-                $('[filter-field]').each(function(i, ell){
-                    formData[ell.id] = $(this).val();
-                });
-
-                let res = $.ajax({
-                    url: "{{route('employees_list')}}",
-                    type: "GET",
-                    processData: true,
-                    contentType: false,
-                    data: formData,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(data){
-                        stopLoading();
-                        let positionParameters = location.pathname.indexOf('?');
-                        let url = location.pathname.substring(positionParameters, location.pathname.length);
-                        let newUrl = url + '?';
-                        for(key in formData){
-                            if(formData[key]){
-                                newUrl += key + "=" + formData[key] + "&";
-                            }
-                        }
-                        newUrl = newUrl.slice(0, -1);
-                        //newUrl += "page={{ isset($_GET['page']) ? $_GET['page'] : 1 }}";
-                        history.pushState({}, '', newUrl);
-
-                        $('#employeesTable').html(data)
-                    },
-                    error: function(data){
-                        stopLoading();
-                        $('#error-message').fadeIn(300).delay(2000).fadeOut(300);
-                    }
-                });
-            });
-
-            $('#reset').on('click', function(){
-                $("[filter-field]").each(function(){
-                    $(this).val("");
-                });
-                $('#search').click();
+<script>
+    $('#resetButton').on('click', function(){
+            $("[filter-field]").each(function(){
+                $(this).attr("value", '');
             });
         });
-    </script>
+</script>
 @endsection
