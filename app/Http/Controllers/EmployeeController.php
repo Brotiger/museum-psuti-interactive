@@ -25,35 +25,26 @@ use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
-    public function edit_employee($id = null){
-        $file_size = FileSize::where('name', 'file')->exists()? FileSize::where('name', 'file')->first()['size'] : 0;
-        $photo_size = FileSize::where('name', 'photo')->exists()? FileSize::where('name', 'photo')->first()['size'] : 0;
-        $video_size = FileSize::where('name', 'video')->exists()? FileSize::where('name', 'video')->first()['size'] : 0;
+    public function employee_more($id = null){
 
+        $server = 'http://' . env('DB_HOST') . ':8001/storage/';
         $units = Unit::orderBy('fullUnitName')->get();
-        $counter = Employee::where('addUserId', Auth::user()->id)->get()->count();
         $params = [
-            'units' => $units,
-            'counter' => $counter,
-            'id' => $id,
-            'file_size' => $file_size,
-            'photo_size' => $photo_size,
-            'video_size' => $video_size
+            'server' => $server
         ];
+
         if(isset($id)){
             $employee = Employee::where([
                 ['id', $id],
-                ['addUserId', Auth::user()->id]
-            ]);
+            ])->get()->first();
             if($employee->exists()){
-                $params['id'] = $id;
-                $params['employee'] = $employee->get()->first();
+                $params['employee'] = $employee;
             }else{
                 return redirect(route('employees_list'));
             }
         }
 
-        return view('employeesEdit', $params);
+        return view('employeeMore', $params);
     }
 
     public function employees_list(Request $request){

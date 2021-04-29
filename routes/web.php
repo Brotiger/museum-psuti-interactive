@@ -22,3 +22,5 @@ Route::get('/employees_list', [EmployeeController::class, "employees_list"])->na
 Route::get('/no_information', function(){
     return view('no_information');
 })->name('no_information');
+
+Route::get('/employee_more/university/{id}', [EmployeeController::class, "employee_more"])->name('employee_more');

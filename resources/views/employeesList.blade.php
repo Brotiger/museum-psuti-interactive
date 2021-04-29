@@ -1,5 +1,7 @@
 @extends('layouts.main')
-@section('title', 'Главная')
+@section('title')
+    Список сотрудников {{ $name }}
+@endsection
 @section('content')
     <div class="container-fluid">
         <div class="mt-5 dbList">
@@ -47,10 +49,16 @@
 @endsection
 @section('custom_js')
 <script>
+    $(document).ready(function(){
+        $('#employeesTable').delegate('.recordRow', 'click', function(){
+            let empId = $(this).attr('employee-id')
+            window.location.href = 'employee_more/university/' + empId;
+        });
     $('#resetButton').on('click', function(){
             $("[filter-field]").each(function(){
                 $(this).attr("value", '');
             });
         });
+    });
 </script>
 @endsection

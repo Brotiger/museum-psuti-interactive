@@ -14,7 +14,7 @@ class Employee extends Model
     }
 
     public function photos(){
-        return $this->hasMany('App\Models\Photos');
+        return $this->hasMany('App\Models\Photo');
     }
 
     public function autobiographys(){
@@ -43,7 +43,6 @@ class Employee extends Model
 
     public function units(){
         return $this->hasMany('App\Models\UnitEmployee');
-        //return $this->belongsToMany('App\Models\Unit');
     }
 
     public function videos(){

@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     background: #7799dd;
-    box-shadow: 0 0 1.7vw #7799dd;
+    box-shadow: .015vw .015vw 0.5vw #7799dd;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     transition: 1s;
-    border-radius: 1vw;
+    border-radius: 0.7vw;
     font-size: 1.5vw;
 }
 header .col{
@@ -22,7 +22,7 @@ header i, .tools i{
     color: #7799dd;
 }
 .menu .btn:hover{
-    box-shadow: inset .1vw .1vw 1.7vw #3d5d9c;
+    box-shadow: inset .015vw .015vw 0.5vw #3d5d9c;
     transition: 1s;
 }
 .menu .col{
@@ -38,15 +38,19 @@ h1{
     font-size: 2vw;
 }
 
+h2, h3{
+    font-size: 1.5vw;
+}
+
 header, header h1{
     font-weight: 600;
     color: #7799dd;
     background-color: #e6eeff;
     font-size: 2vw;
 }
-.dbList{
-    padding-left: 1vw;
-    padding-right: 1vw;
+.container-fluid{
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 input[type~="text"], input[type~="password"], input[type~="date"], input[type~="select"], button i{
@@ -78,15 +82,71 @@ header a:hover{
 a.btn{
     font-size: 1.5vw;
     background: #7799dd;
-    box-shadow: 0 0 1.7vw #7799dd;
+    box-shadow: .015vw .015vw 0.5vw #7799dd;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
-    border-radius: 1vw;
+    border-radius: 0.7vw;
     padding: 1vw;
 }
 
 a.btn:hover{
-    box-shadow: inset .1vw .1vw 1.7vw #3d5d9c;
+    box-shadow: inset .015vw .015vw 0.5vw #3d5d9c;
     color: #fff;
+}
+
+.menu.container-fluid{
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+.personal-photo, .user-photo{
+    border-radius: 0.7vw;
+}
+
+.right-info{
+    padding-left: 1vw;
+}
+
+li.title, .description_block{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.block-container{
+    padding: 1vw;
+    border-radius: 0.7vw;
+    background-color: #fff;
+    box-shadow: .015vw .015vw 0.5vw #a7a7a7;
+}
+
+.block-info{
+    margin-top: 1vw;
+}
+
+.info-page input[type~="date"]{
+    border-radius: .7vw;
+}
+
+.info-page{
+    padding-bottom: 1vw;
+}
+
+.left-info li{
+    padding-left: 2vw;
+    position: relative;
+}
+
+.left-info i{
+    position: absolute;
+    left: 0;
+    top: .3vw;
+}
+
+.user-photo-block span{
+    display: block;
 }
