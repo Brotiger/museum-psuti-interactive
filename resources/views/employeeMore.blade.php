@@ -132,7 +132,26 @@
                                     @if($photo->photoDate)
                                         <span class="mb-3">{{ $photo->photoDate }}</span>
                                     @endif
-                                    <img src="{{ $server . $photo->photo }}" class="user-photo">
+                                    <div class='content'>
+                                        <img src="{{ $server . $photo->photo }}" class="user-photo">
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                        @if(count($employee->videos))
+                            @foreach($employee->videos as $index => $video)
+                                <div class="block-container block-info user-video-block">
+                                    @if($video->videoName)
+                                        <h3 class="mb-3">{{ $video->videoName }}</h3>
+                                    @endif
+                                    @if($video->videoDate)
+                                        <span class="mb-3">{{ $video->videoDate }}</span>
+                                    @endif
+                                    <div class='content'>
+                                        <video controls="controls" class="user-video">
+                                            <source src="{{ $server . $video->video }}">
+                                        </video>
+                                    </div>
                                 </div>
                             @endforeach
                         @endif

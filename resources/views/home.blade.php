@@ -24,13 +24,13 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <a class="btn" href="{{ route('employees_list') }}">Сотрудники<br>(ПГУТИ)</a>
+                <a class="btn" href="{{ route('employees_list',['name' => 'pguty']) }}">Сотрудники<br>(ПГУТИ)</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">Выпускники<br>(ПГУТИ)</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">Сотрудники<br>(КС ПГУТИ)</a>
+                <a class="btn" href="{{ route('employees_list',['name' => 'ks']) }}">Сотрудники<br>(КС ПГУТИ)</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">Выпускники<br>(КС ПГУТИ)</a>

@@ -18,7 +18,7 @@
                         <th colspan="4">Дата приема на работу</th>
                     </tr>
                     <tr>
-                        <form method="GET" action="{{route('employees_list')}}">
+                        <form method="GET">
                             <th><input filter-field type="text" class="form-control" placeholder="Фамилия" name="lastName" autocomplete="off" value="{{ request()->input('lastName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Имя" name="firstName" autocomplete="off" value="{{ request()->input('firstName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Отчество" name="secondName" autocomplete="off" value="{{ request()->input('secondName') }}"></th>
@@ -52,7 +52,7 @@
     $(document).ready(function(){
         $('#employeesTable').delegate('.recordRow', 'click', function(){
             let empId = $(this).attr('employee-id')
-            window.location.href = 'employee_more/university/' + empId;
+            window.location.href = window.location.href + '/more/' + empId;
         });
     $('#resetButton').on('click', function(){
             $("[filter-field]").each(function(){

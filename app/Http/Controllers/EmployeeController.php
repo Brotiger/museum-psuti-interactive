@@ -25,9 +25,16 @@ use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
-    public function employee_more($id = null){
+    public function employee_more($name, $id = null){
+        if($name == "pguty"){
+            DB::setDefaultConnection('pguty');
+        }else if($name == "ks"){
+            DB::setDefaultConnection('ks');
+        }else{
+            return;
+        }
 
-        $server = 'http://' . env('DB_HOST') . ':8001/storage/';
+        $server = 'http://psuti.ddns.net:8001/storage/';
         $units = Unit::orderBy('fullUnitName')->get();
         $params = [
             'server' => $server
@@ -47,7 +54,15 @@ class EmployeeController extends Controller
         return view('employeeMore', $params);
     }
 
-    public function employees_list(Request $request){
+    public function employees_list(Request $request, $name){
+        if($name == "pguty"){
+            DB::setDefaultConnection('pguty');
+        }else if($name == "ks"){
+            DB::setDefaultConnection('ks');
+        }else{
+            return;
+        }
+
         $filter = [];
         $next_query = [
             'lastName' => '',
