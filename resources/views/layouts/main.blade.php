@@ -19,12 +19,19 @@
         </div>
         <header class="container-fluid">
             <div class="row">
-                <div class="col text-center"><a href="javascript:history.go(-1)"><i class="fas fa-arrow-left"></i></a></div>
+                <div class="col-1 d-flex justify-content-start align-items-center">
+                    <a href="javascript:history.go(-1)"><i class="fas fa-arrow-left"></i></a>
+                </div>
                 <div class="col-10 text-center"><a href="/">Электронный музей ПГУТИ и КС ПГУТИ</a></div>
-                <div class="col text-center"><a href="javascript:history.go(+1)"><i class="fas fa-arrow-right"></a></i></div>
+                <div class="col-1 d-flex justify-content-end align-items-center">
+                    <a href="javascript:history.go(+1)"><i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </header>
         @yield('content')
+        <div class="copyrait text-center">
+            <a href="#">© ПГУТИ & Brotiger @php echo date('Y') @endphp</a>
+        </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

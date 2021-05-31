@@ -133,7 +133,7 @@
                                         <span class="mb-3">{{ $photo->photoDate }}</span>
                                     @endif
                                     <div class='content'>
-                                        <img src="{{ $server . $photo->photo }}" class="user-photo">
+                                        <img src="{{ $storageServer . $photo->photo }}" class="user-photo">
                                     </div>
                                 </div>
                             @endforeach
@@ -149,7 +149,7 @@
                                     @endif
                                     <div class='content'>
                                         <video controls="controls" class="user-video">
-                                            <source src="{{ $server . $video->video }}">
+                                            <source src="{{ $storageServer . $video->video }}">
                                         </video>
                                     </div>
                                 </div>

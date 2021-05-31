@@ -1,0 +1,5 @@
+.env
+.editorconfig
+/public/storage
+/storage/*.key
+/node_modules

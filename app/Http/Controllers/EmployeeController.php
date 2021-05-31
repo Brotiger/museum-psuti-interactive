@@ -26,18 +26,22 @@ use Illuminate\Support\Facades\Validator;
 class EmployeeController extends Controller
 {
     public function employee_more($name, $id = null){
+        $storageServer = '';
+
         if($name == "pguty"){
             DB::setDefaultConnection('pguty');
+            $storageServer = env('PGUTY_STORAGE');
         }else if($name == "ks"){
             DB::setDefaultConnection('ks');
+            $storageServer = env('PGUTY_KS_STORAGE');
         }else{
             return;
         }
+        $storageServer .= '/storage/';
 
-        $server = 'http://psuti.ddns.net:8001/storage/';
         $units = Unit::orderBy('fullUnitName')->get();
         $params = [
-            'server' => $server
+            'storageServer' => $storageServer
         ];
 
         if(isset($id)){
@@ -55,10 +59,13 @@ class EmployeeController extends Controller
     }
 
     public function employees_list(Request $request, $name){
+        $titleName = '';
         if($name == "pguty"){
             DB::setDefaultConnection('pguty');
+            $titleName = "ПГУТИ";
         }else if($name == "ks"){
             DB::setDefaultConnection('ks');
+            $titleName = "КС ПГУТИ";
         }else{
             return;
         }
@@ -98,7 +105,7 @@ class EmployeeController extends Controller
         return view('employeesList', [
             'employees' => $employees,
             'next_query' => $next_query,
-            'name' => 'ПГУТИ'
+            'name' => $titleName
         ]);
     }
 }

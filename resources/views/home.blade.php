@@ -44,6 +44,12 @@
         </div>
         <div class="row">
             <div class="col s3">
+                <a class="btn min" href="{{ route('no_information') }}">Подразделения (ПГУТИ)</a>
+            </div>
+            <div class="col s3">
+                <a class="btn min" href="{{ route('no_information') }}">Подразделения (КС ПГУТИ)</a>
+            </div>
+            <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">Виртуальная экскурсия (Музей имени Попова)</a>
             </div>
             <div class="col s3">

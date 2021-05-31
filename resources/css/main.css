@@ -13,6 +13,11 @@
     border-radius: 0.7vw;
     font-size: 1.5vw;
 }
+
+.menu .btn.min{
+    font-size: 1.3vw;
+}
+
 header .col{
     display: flex;
     align-items: center;
@@ -161,4 +166,36 @@ li.title, .description_block{
 
 ul{
     padding-left: 1vw;
+}
+
+.recordRow{
+    cursor: pointer;
+}
+
+body, html{
+    height: 100%;
+}
+
+body{
+    position: relative;
+    padding-bottom: 2vw;
+}
+
+.copyrait{
+    position: fixed;
+    height: 2vw;
+    bottom: 0;    
+    color: #7799dd;
+    background-color: #e6eeff;
+    width: 100%;
+    font-size: 1.1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.copyrait a{
+    color: #7799dd;
+    text-decoration: none;
 }
