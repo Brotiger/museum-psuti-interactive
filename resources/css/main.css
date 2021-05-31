@@ -58,7 +58,7 @@ header, header h1{
     padding-right: 2vw;
 }
 
-input[type~="text"], input[type~="password"], input[type~="date"], input[type~="select"], button i{
+input[type~="text"], input[type~="password"], input[type~="date"], input[type~="number"], input[type~="select"], button i{
     font-size: 1.5vw;
     color: rgb(95, 95, 95);
 }
@@ -133,10 +133,6 @@ li.title, .description_block{
     margin-top: 1vw;
 }
 
-.info-page input[type~="date"]{
-    border-radius: .7vw;
-}
-
 .info-page{
     padding-bottom: 1vw;
 }
@@ -144,6 +140,7 @@ li.title, .description_block{
 .left-info li{
     padding-left: 2vw;
     position: relative;
+    margin-bottom: 1vw;
 }
 
 .left-info i{
@@ -178,6 +175,10 @@ body, html{
 
 body{
     position: relative;
+    padding-bottom: 2vw;
+}
+
+.pagination{
     padding-bottom: 2vw;
 }
 

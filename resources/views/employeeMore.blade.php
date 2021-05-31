@@ -3,7 +3,7 @@
 Сотрудник - {{ (!empty($employee)? $employee->lastName : '') . " " . (!empty($employee)? $employee->firstName : '')}}
 @endsection
 @section('content')
-    <div class="container-fluid mt-5 info-page">
+    <div class="container-fluid mt-4 info-page">
             <div class="my-4">
                 <div class="row mb-3">
                     <div class="col-sm-4 left-info">
@@ -14,7 +14,7 @@
                                 </div>
                                 @if(count($employee->titles))
                                     <div class="block-container block-info">
-                                        <h2>Ученые звания</h2>
+                                        <h2 class="mb-3">Ученые звания</h2>
                                         <ul>
                                         @foreach($employee->titles as $index => $title)
                                             <li class="title">
@@ -26,7 +26,7 @@
                                 @endif
                                 @if(count($employee->degrees))
                                     <div class="block-container block-info">
-                                        <h2>Ученые степени</h2>
+                                        <h2 class="mb-3">Ученые степени</h2>
                                         <ul>
                                         @foreach($employee->degrees as $index => $degree)
                                             <li class="title">
@@ -38,7 +38,7 @@
                                 @endif
                                 @if(count($employee->educations))
                                     <div class="block-container block-info">
-                                        <h2>Образование</h2>
+                                        <h2 class="mb-3">Образование</h2>
                                         <ul>
                                         @foreach($employee->educations as $index => $education)
                                             <li class="title">
@@ -50,7 +50,7 @@
                                 @endif
                                 @if(count($employee->rewards))
                                     <div class="block-container block-info">
-                                        <h2>Награды</h2>
+                                        <h2 class="mb-3">Награды</h2>
                                         <ul>
                                         @foreach($employee->rewards as $index => $reward)
                                             <li class="title">
@@ -62,7 +62,7 @@
                                 @endif
                                 @if(count($employee->attainments))
                                     <div class="block-container block-info">
-                                        <h2>Достижения</h2>
+                                        <h2 class="mb-3">Достижения</h2>
                                         <ul>
                                         @foreach($employee->attainments as $index => $attainment)
                                             <li class="title">
@@ -74,7 +74,7 @@
                                 @endif
                                 @if(count($employee->units))
                                     <div class="block-container block-info">
-                                        <h2>Подразделения</h2>
+                                        <h2 class="mb-3">Подразделения</h2>
                                         <ul>
                                         @foreach($employee->units as $index => $unit)
                                             <li class="title">
@@ -89,9 +89,10 @@
                     </div>
                     <div class="col-sm-8 right-info">
                         <div class="block-container">
+                            <div class="mb-4">
                             <h1>{{ $employee->lastName . ' ' . $employee->firstName . ' ' .$employee->secondName }}</h1>
                             @if($employee->dateBirthday)
-                                <div class="form-group my-4 row">
+                                <div class="form-group my-3 row">
                                     <label for="dateBirthday" class="col-6 col-form-label">Дата рождения</label>
                                     <div class="col-sm-6">
                                         <input disabled class="form-control" type="date" id="dateBirthday" value="{{ $employee->dateBirthday }}">
@@ -99,7 +100,7 @@
                                 </div>
                             @endif
                             @if($employee->hired)
-                                <div class="form-group my-4 row">
+                                <div class="form-group my-3 row">
                                     <label for="hired" class="col-6 col-form-label">Дата приема</label>
                                     <div class="col-sm-6">
                                         <input disabled class="form-control" type="date" id="hired" value="{{ $employee->hired }}">
@@ -107,16 +108,17 @@
                                 </div>
                             @endif
                             @if($employee->fired)
-                                <div class="form-group my-4 row">
+                                <div class="form-group my-3 row">
                                     <label for="fired" class="col-6 col-form-label">Дата увольнения</label>
                                     <div class="col-sm-6">
                                         <input disabled class="form-control" type="date" id="fired" value="{{ $employee->fired }}">
                                     </div>
                                 </div>
                             @endif
+                            </div>
                             @if($employee->description)
-                                <hr class="my-5">
-                                <div class="form-group mb-3 row">
+                                <hr class="mb-4">
+                                <div class="form-group row">
                                     <div class="col-sm-12 description_block">
                                         {{ $employee->description }}
                                     </div>

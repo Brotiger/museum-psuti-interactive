@@ -3,29 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
-use App\Models\Education;
+use App\Models\Graduate;
 use App\Models\Degree;
-use App\Models\Title;
-use App\Models\Reward;
-use App\Models\Attainment;
 use App\Models\Photo;
 use App\Models\Video;
-use App\Models\Unit;
 use App\Models\User;
-use App\Models\FileSize;
-use App\Models\UnitEmployee;
-use App\Models\PersonalFile;
-use App\Models\AutobiographyFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class EmployeeController extends Controller
+class GraduateController extends Controller
 {
-    public function employee_more($name, $id = null){
+    public function graduate_more($name, $id = null){
         $storageServer = '';
 
         if($name == "pguty"){
@@ -39,26 +30,25 @@ class EmployeeController extends Controller
         }
         $storageServer .= '/storage/';
 
-        $units = Unit::orderBy('fullUnitName')->get();
         $params = [
             'storageServer' => $storageServer
         ];
 
         if(isset($id)){
-            $employee = Employee::where([
+            $graduate = Graduate::where([
                 ['id', $id],
             ])->get()->first();
-            if($employee->exists()){
-                $params['employee'] = $employee;
+            if($graduate->exists()){
+                $params['graduate'] = $graduate;
             }else{
-                return redirect(route('employees_list'));
+                return redirect(route('graduates_list'));
             }
         }
 
-        return view('employeeMore', $params);
+        return view('graduateMore', $params);
     }
 
-    public function employees_list(Request $request, $name){
+    public function graduates_list(Request $request, $name){
         $titleName = '';
         if($name == "pguty"){
             DB::setDefaultConnection('pguty');
@@ -75,8 +65,8 @@ class EmployeeController extends Controller
             'lastName' => '',
             'firstName' => '',
             'secondName' => '',
-            'firedFrom' => '',
-            'firedTo' => '',
+            'exitYearFrom' => '',
+            'exitYearTo' => '',
         ];
 
         if($request->input("lastName") != null){
@@ -91,19 +81,19 @@ class EmployeeController extends Controller
             $filter[] = ["secondName", "like", '%' . $request->input("secondName") . '%'];
             $next_query['secondName'] = $request->input("secondName");
         }
-        if($request->input("firedFrom") != null){
-            $filter[] = ["fired", ">=", $request->input("firedFrom")];
-            $next_query['firedFrom'] = $request->input("firedFrom");
+        if($request->input("exitYearFrom") != null){
+            $filter[] = ["exitYear", ">=", $request->input("exitYearFrom")];
+            $next_query['exitYearFrom'] = $request->input("exitYearFrom");
         }
-        if($request->input("firedTo") != null){
-            $filter[] = ["fired", "<", $request->input("firedTo")];
-            $next_query['firedTo'] = $request->input("firedTo");
+        if($request->input("exitYearTo") != null){
+            $filter[] = ["exitYear", "<", $request->input("exitYearTo")];
+            $next_query['exitYearTo'] = $request->input("exitYearTo");
         }
 
-        $employees = Employee::where($filter)->orderBy("lastName")->paginate(20);
+        $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(20);
 
-        return view('employeesList', [
-            'employees' => $employees,
+        return view('graduatesList', [
+            'graduates' => $graduates,
             'next_query' => $next_query,
             'name' => $titleName
         ]);
