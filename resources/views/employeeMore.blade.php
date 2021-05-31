@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="block-container">
-                                    <img src="{{ $employee->img? $server . $employee->img : '/images/no-profile.png'}}" class="personal-photo">
+                                    <img src="{{ $employee->img? $storageServer . $employee->img : '/images/no-profile.png'}}" class="personal-photo">
                                 </div>
                                 @if(count($employee->titles))
                                     <div class="block-container block-info">

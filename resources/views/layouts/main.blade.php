@@ -22,7 +22,9 @@
                 <div class="col-1 d-flex justify-content-start align-items-center">
                     <a href="javascript:history.go(-1)"><i class="fas fa-arrow-left"></i></a>
                 </div>
-                <div class="col-10 text-center"><a href="/">Электронный музей ПГУТИ и КС ПГУТИ</a></div>
+                <div class="col-10 text-center">
+                    <a href="/">Электронный музей ПГУТИ и КС ПГУТИ</a>
+                </div>
                 <div class="col-1 d-flex justify-content-end align-items-center">
                     <a href="javascript:history.go(+1)"><i class="fas fa-arrow-right"></i></a>
                 </div>
