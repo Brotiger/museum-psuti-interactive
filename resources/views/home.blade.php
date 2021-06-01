@@ -4,7 +4,7 @@
     <div class="container-fluid menu">
         <div class="row">
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">ПГУТИ</a>
+                <a class="btn" href="{{ route('no_information') }}">КЭИС ПИИРС ПГАТИ ПГУТИ</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">КС ПГУТИ</a>
@@ -13,13 +13,13 @@
                 <a class="btn" href="{{ route('no_information') }}">Филиалы</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">СРТТУ</a>
+                <a class="btn" href="{{ route('no_information') }}">СРТТЦ</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">Ректора</a>
+                <a class="btn" href="{{ route('no_information') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">Проректоры,<br>Деканы,<br>Заведующие кафедр</a>
+                <a class="btn" href="{{ route('no_information') }}">Проректоры,<br>Деканы</a>
             </div>
         </div>
         <div class="row">
