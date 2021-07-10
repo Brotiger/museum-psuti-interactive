@@ -1,10 +1,7 @@
-$(document).ready(function(){
-
 buttons();
 
-    $(window).resize(function(){
-        buttons();
-    });
+$(window).resize(function(){
+    buttons();
 });
 
 function buttons(){

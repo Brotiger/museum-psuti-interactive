@@ -1,0 +1,31 @@
+body{
+    background: $background;
+    color: $color_1;
+    font-size: 1.2vw;
+}
+
+th{
+    color: $color_1;
+    font-size: 1vw;
+
+    &:nth-last-of-type(1){
+        padding-right: 0;
+    }
+
+    &:first-of-type{
+        padding-left: 0;
+    }
+}
+
+td{
+    color: $color_1;
+    font-size: 1.2vw;
+}
+
+.pagination{
+    justify-content: center;
+}
+
+h1{
+    font-size: 2vw;
+}

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\GraduateController;
 
 /*
@@ -19,12 +20,17 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/employees/{name}', [EmployeeController::class, "employees_list"])->name('employees_list');
 Route::get('/graduates/{name}', [GraduateController::class, "graduates_list"])->name('graduates_list');
 
 Route::get('/no_information', function(){
     return view('no_information');
 })->name('no_information');
 
-Route::get('/employees/{name}/more/{id}', [EmployeeController::class, "employee_more"])->name('employee_more');
-Route::get('/graduates/{name}/more/{id}', [GraduateController::class, "graduate_more"])->name('graduate_more');
+Route::prefix('/employees/{name}')->group(function(){
+    Route::get('', [EmployeeController::class, "employees_list"])->name('employees_list');
+    Route::get('/more/{id}', [EmployeeController::class, "employee_more"])->name('employee_more');
+});
+
+Route::prefix('/units/{name}')->group(function(){
+    Route::get('', [UnitController::class, "units_list"])->name('units_list');
+});

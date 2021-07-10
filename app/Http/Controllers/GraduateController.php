@@ -16,38 +16,6 @@ use Illuminate\Support\Facades\Validator;
 
 class GraduateController extends Controller
 {
-    public function graduate_more($name, $id = null){
-        $storageServer = '';
-
-        if($name == "pguty"){
-            DB::setDefaultConnection('pguty');
-            $storageServer = env('PGUTY_STORAGE');
-        }else if($name == "ks"){
-            DB::setDefaultConnection('ks');
-            $storageServer = env('PGUTY_KS_STORAGE');
-        }else{
-            return;
-        }
-        $storageServer .= '/storage/';
-
-        $params = [
-            'storageServer' => $storageServer
-        ];
-
-        if(isset($id)){
-            $graduate = Graduate::where([
-                ['id', $id],
-            ])->get()->first();
-            if($graduate->exists()){
-                $params['graduate'] = $graduate;
-            }else{
-                return redirect(route('graduates_list'));
-            }
-        }
-
-        return view('graduateMore', $params);
-    }
-
     public function graduates_list(Request $request, $name){
         $titleName = '';
         if($name == "pguty"){
@@ -90,7 +58,7 @@ class GraduateController extends Controller
             $next_query['exitYearTo'] = $request->input("exitYearTo");
         }
 
-        $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(20);
+        $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(17);
 
         return view('graduatesList', [
             'graduates' => $graduates,

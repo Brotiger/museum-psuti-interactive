@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title')
-    Список сотрудников {{ $name }}
+    Список подрахделений {{ $name }}
 @endsection
 @section('content')
     <div class="container-fluid">
         <div class="pt-4 dbList">
             <div class="mb-3 text-center">
-                <h1>Список сотрудников {{ $name }}</h1>
+                <h1>Список подразделений {{ $name }}</h1>
                 <span>Для того что бы просмотреть подробную информацию о сотруднике нажмите на него</span>
             </div>
             <table class="table table-striped">

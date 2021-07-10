@@ -100,7 +100,7 @@ class EmployeeController extends Controller
             $next_query['firedTo'] = $request->input("firedTo");
         }
 
-        $employees = Employee::where($filter)->orderBy("lastName")->paginate(20);
+        $employees = Employee::where($filter)->orderBy("lastName")->paginate(17);
 
         return view('employeesList', [
             'employees' => $employees,

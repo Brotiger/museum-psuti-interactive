@@ -1,0 +1,33 @@
+header{
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    font-weight: 500;
+    color: $color_1;
+    background-color: $color_3;
+    font-size: 2vw;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+
+    a{
+        display: block;
+        color: $color_1;
+        text-decoration: none;
+
+        i{
+            color: $color_1;
+        }
+
+        > i{
+            margin-left: 1vw;
+            margin-right: 1vw;  
+        }
+
+        &:hover{
+          color: $color_1;  
+        }
+    }
+}

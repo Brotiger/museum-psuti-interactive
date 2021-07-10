@@ -7,5 +7,5 @@ function stopLoading(){
     setTimeout(function(){
         document.body.classList.add('loaded_hiding');
         document.body.classList.add('loaded');
-    }, 500);
+    }, 250);
 }

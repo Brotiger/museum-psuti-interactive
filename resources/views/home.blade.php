@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Главная')
 @section('content')
+<div class="menuContainer">
     <div class="container-fluid menu">
         <div class="row">
             <div class="col s3">
@@ -19,7 +20,7 @@
                 <a class="btn" href="{{ route('no_information') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">Проректоры,<br>Деканы</a>
+                <a class="btn" href="{{ route('no_information') }}">Проректоры,<br>деканы</a>
             </div>
         </div>
         <div class="row">
@@ -44,7 +45,7 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <a class="btn min" href="{{ route('no_information') }}">Подразделения (ПГУТИ)</a>
+                <a class="btn min" href="{{ route('units_list',['name' => 'pguty']) }}">Подразделения (ПГУТИ)</a>
             </div>
             <div class="col s3">
                 <a class="btn min" href="{{ route('no_information') }}">Подразделения (КС ПГУТИ)</a>
@@ -63,4 +64,5 @@
             </div>
         </div>
     </div>
+<div>
 @endsection
