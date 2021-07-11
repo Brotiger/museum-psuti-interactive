@@ -41,7 +41,8 @@ class EmployeeController extends Controller
 
         $units = Unit::orderBy('fullUnitName')->get();
         $params = [
-            'storageServer' => $storageServer
+            'storageServer' => $storageServer,
+            'name' => $name
         ];
 
         if(isset($id)){

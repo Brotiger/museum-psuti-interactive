@@ -22,9 +22,9 @@
                     </tr>
                 </thead>
                 @if($employees->count() > 0)
-                <tbody id="employeesTable">
+                <tbody id="listTable">
                     @foreach($employees as $employee)
-                        <tr class="recordRow" employee-id="{{ $employee->id }}">
+                        <tr class="recordRow" record-id="{{ $employee->id }}">
                             <td>{{ $employee->lastName }}</td>
                             <td>{{ $employee->firstName }}</td>
                             <td>{{ $employee->secondName }}</td>
@@ -42,17 +42,5 @@
     </div>
 @endsection
 @section('custom_js')
-<script>
-    $(document).ready(function(){
-        $('#employeesTable').delegate('.recordRow', 'click', function(){
-            let empId = $(this).attr('employee-id')
-            window.location.href = window.location.href.split('?')[0] + '/more/' + empId;
-        });
-    $('#resetButton').on('click', function(){
-            $("[filter-field]").each(function(){
-                $(this).attr("value", '');
-            });
-        });
-    });
-</script>
+    @include('components.js.moreRecord')
 @endsection

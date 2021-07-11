@@ -44,7 +44,7 @@ class Employee extends Model
     }
 
     public function units(){
-        return $this->hasMany('App\Models\UnitEmployee');
+        return $this->hasMany('App\Models\UnitEmployee', 'employee_id', 'id');
     }
 
     public function videos(){

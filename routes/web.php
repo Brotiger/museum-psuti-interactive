@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\GraduateController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,10 @@ Route::prefix('/employees/{name}')->group(function(){
 
 Route::prefix('/units/{name}')->group(function(){
     Route::get('', [UnitController::class, "units_list"])->name('units_list');
+    Route::get('/more/{id}', [UnitController::class, 'unit_more'])->name('unit_more');
+});
+
+Route::prefix('/events/{name}')->group(function(){
+    Route::get('', [EventController::class, "events_list"])->name('events_list');
+    Route::get('/more/{id}', [EventController::class, 'event_more'])->name('event_more');
 });

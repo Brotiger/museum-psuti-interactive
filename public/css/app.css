@@ -316,21 +316,29 @@ button i {
 .info-page .col-sm-8 {
   padding-left: 0.5vw;
 }
-.info-page h1 {
+.info-page h1, .info-page .h1 {
   font-size: 2vw;
 }
 .info-page h3 {
   font-size: 1.4vw;
 }
+.info-page h2 {
+  font-size: 1.4vw;
+}
 .info-page a {
   color: #a1baff;
+}
+.info-page .date {
+  display: flex;
+  align-items: center;
 }
 
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 img.personal-photo {
+  width: 100%;
   padding: 1vw;
   border: 1vw solid #546b96d3;
 }
@@ -341,11 +349,8 @@ img.personal-photo {
   padding: 1vw;
 }
 .block-info ul {
-  padding-left: 0;
+  padding-left: 1vw;
   list-style: none;
-}
-.block-info h2 {
-  font-size: 1.4vw;
 }
 
 .personal-info {
@@ -355,6 +360,7 @@ img.personal-photo {
 
 .user-photo-block img {
   border: 1vw solid #617baa;
+  max-height: 1200px;
 }
 
 .user-video-block .content {
@@ -371,4 +377,9 @@ img.personal-photo {
   height: 100%;
   left: 0;
   top: 0;
+}
+
+.info-page .block {
+  background-color: #546b96d3;
+  padding: 1vw;
 }

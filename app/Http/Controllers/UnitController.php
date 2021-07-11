@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Unit;
 
 class UnitController extends Controller
 {
-    /*public function employee_more($name, $id = null){
+    public function unit_more($name, $id = null){
         $storageServer = '';
 
         if($name == "pguty"){
@@ -24,23 +23,24 @@ class UnitController extends Controller
         $storageServer .= '/storage/';
 
         $units = Unit::orderBy('fullUnitName')->get();
+
         $params = [
             'storageServer' => $storageServer
         ];
 
         if(isset($id)){
-            $employee = Employee::where([
+            $unit = Unit::where([
                 ['id', $id],
             ])->get()->first();
-            if($employee->exists()){
-                $params['employee'] = $employee;
+            if($unit->exists()){
+                $params['unit'] = $unit;
             }else{
-                return redirect(route('employees_list'));
+                return redirect(route('units_list'));
             }
         }
 
-        return view('employeeMore', $params);
-    }*/
+        return view('unitMore', $params);
+    }
 
     public function units_list(Request $request, $name){
         $titleName = '';
