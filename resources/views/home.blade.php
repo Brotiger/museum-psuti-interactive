@@ -5,7 +5,7 @@
     <div class="container-fluid menu">
         <div class="row">
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">КЭИС ПИИРС ПГАТИ ПГУТИ</a>
+                <a class="btn" href="{{ route('pguty') }}">КЭИС ПИИРС<br>ПГАТИ ПГУТИ</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">КС ПГУТИ</a>

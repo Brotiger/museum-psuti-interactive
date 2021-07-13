@@ -47,7 +47,7 @@ h1 {
   justify-content: center;
   transition: 0.1s;
   font-size: 1.4vw;
-  background: #7190ca;
+  background: #6986bd;
   color: #fff;
   border: 0.1vw solid #4b6088;
 }
@@ -382,4 +382,31 @@ img.personal-photo {
 .info-page .block {
   background-color: #546b96d3;
   padding: 1vw;
+}
+
+.time-line-year, .time-line-month {
+  font-size: 1.5vw;
+  background-color: #546b96d3;
+  padding-top: 0.1vw;
+  padding-bottom: 0.1vw;
+  border: solid 0.1vw #546b96d3;
+  transition: 0.15s ease all;
+}
+.time-line-year.active, .time-line-month.active {
+  background-color: #6986bd;
+}
+
+.info-page {
+  overflow: hidden;
+}
+
+nav {
+  position: absolute;
+  bottom: 3.5vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+nav li {
+  text-align: center;
+  width: 2vw;
 }

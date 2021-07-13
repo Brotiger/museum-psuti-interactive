@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\GraduateController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PgutyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,5 @@ Route::prefix('/events/{name}')->group(function(){
     Route::get('', [EventController::class, "events_list"])->name('events_list');
     Route::get('/more/{id}', [EventController::class, 'event_more'])->name('event_more');
 });
+
+Route::get('/pruty', [PgutyController::class, "index"])->name('pguty');
