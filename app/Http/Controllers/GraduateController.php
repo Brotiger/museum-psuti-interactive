@@ -54,7 +54,7 @@ class GraduateController extends Controller
             $next_query['exitYearFrom'] = $request->input("exitYearFrom");
         }
         if($request->input("exitYearTo") != null){
-            $filter[] = ["exitYear", "<", $request->input("exitYearTo")];
+            $filter[] = ["exitYear", "<=", $request->input("exitYearTo")];
             $next_query['exitYearTo'] = $request->input("exitYearTo");
         }
 

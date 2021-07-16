@@ -97,7 +97,7 @@ class EmployeeController extends Controller
             $next_query['firedFrom'] = $request->input("firedFrom");
         }
         if($request->input("firedTo") != null){
-            $filter[] = ["fired", "<", $request->input("firedTo")];
+            $filter[] = ["fired", "<=", $request->input("firedTo")];
             $next_query['firedTo'] = $request->input("firedTo");
         }
 

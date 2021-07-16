@@ -3,7 +3,7 @@
     Список сотрудников {{ $name }}
 @endsection
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid px-0">
         <div class="pt-4 dbList">
             <div class="mb-3 text-center">
                 <h1>Список сотрудников {{ $name }}</h1>

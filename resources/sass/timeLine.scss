@@ -1,8 +1,7 @@
-.time-line-year, .time-line-month{
+.time-line-year, .time-line-month, .select-date{
     font-size: 1.5vw;
     background-color: $color_4;
-    padding-top: .1vw;
-    padding-bottom: .1vw;
+    padding: .1vw, .1vw;
     border: solid .1vw $color_4;
     transition: .15s ease all;
 
@@ -11,6 +10,64 @@
     }
 }
 
-.info-page{
+.date-page{
+    margin-top: 4vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 4vw;
+
     overflow: hidden;
+
+    .col-4:nth-of-type(2){
+        padding-right: .5vw;
+        padding-left: .5vw;
+    }
+
+    .col-4:first-child{
+        padding-right: .5vw;
+    }
+
+    .col-4:last-child{
+        padding-left: .5vw;
+    }
+}
+
+.list{ 
+    margin-top: 1vw;
+    height: 47.8vh;
+    position: relative;
+    white-space: nowrap;
+
+    li{
+        &:not(:first-child){
+            margin-top: 1vh;
+        }
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    input{
+        font-size: 1.2vw;
+        position: absolute;
+        bottom: 2vh;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: .5vh .9vw;
+        color: white;
+        background: $color_2;
+        border: none;
+        border-radius: .1vw;
+        outline: none;
+        box-shadow: 0px 0px 2vw rgba(27, 37, 61, 0.5);
+        transition: .1s;
+
+        &:active{
+            font-size: 1.1vw;
+        }
+    }
+
+    ul{
+        list-style: none;
+        padding-left: 0;
+    }
 }

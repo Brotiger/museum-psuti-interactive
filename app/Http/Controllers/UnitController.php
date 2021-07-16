@@ -80,7 +80,7 @@ class UnitController extends Controller
             $next_query['creationDateFrom'] = $request->input("creationDateFrom");
         }
         if($request->input("creationDateTo") != null){
-            $filter[] = ["creationDate", "<", $request->input("creationDateTo")];
+            $filter[] = ["creationDate", "<=", $request->input("creationDateTo")];
             $next_query['creationDateTo'] = $request->input("creationDateTo");
         }
 

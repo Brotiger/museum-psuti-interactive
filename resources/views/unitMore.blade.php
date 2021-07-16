@@ -5,9 +5,9 @@
 @section('content')
     <div class="container-fuild info-page">
                 <div class="row mb-3">
-                    <div class="col-sm-4 left-info">
+                    <div class="col-4 left-info">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-12">
                                 <div class="block-container block">
                                     <h2 class="mb-0 h1">Подразделение</h2>
                                 </div>
@@ -20,7 +20,7 @@
                                         @if($unit->creationDate)
                                             <div class="form-group my-3 row">
                                                 <label for="dateBirthday" class="col-6 col-form-label">Дата рождения</label>
-                                                <div class="col-sm-6 date">
+                                                <div class="col-6 date">
                                                     <span id="dateBirthday">{{ $unit->creationDate }}</span>
                                                 </div>
                                             </div>
@@ -28,7 +28,7 @@
                                         @if($unit->terminationDate)
                                             <div class="form-group my-3 row">
                                                 <label for="hired" class="col-6 col-form-label">Дата приема</label>
-                                                <div class="col-sm-6 date">
+                                                <div class="col-6 date">
                                                     <span id="hired">{{ $unit->terminationDate }}</span>
                                                 </div>
                                             </div>
@@ -45,12 +45,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-8 right-info">
+                    <div class="col-8 right-info">
                         @if($unit->description)
                             <div class="block-container personal-info">
                                 <h2 class="mb-4">Описание</h2>
                                 <div class="form-group row">
-                                    <div class="col-sm-12 description_block">
+                                    <div class="col-12 description_block">
                                         {!! $unit->description !!}
                                     </div>
                                 </div>
@@ -58,11 +58,12 @@
                         @endif
                         @if(count($unit->photos))
                             @foreach($unit->photos as $index => $photo)
-                                <div class="block-container block-info user-photo-block">
+                                <div class="block-container block-info photo-block">
                                     @if($photo->photoName)
                                         <h3 class="mb-4">{{ $photo->photoName }}</h3>
                                     @endif
                                     @if($photo->photoDate)
+                                        <hr>
                                         <div class="mb-4">{{ $photo->photoDate }}</div>
                                     @endif
                                     <div class='content'>
@@ -73,11 +74,12 @@
                         @endif
                         @if(count($unit->videos))
                             @foreach($unit->videos as $index => $video)
-                                <div class="block-container block-info user-video-block">
+                                <div class="block-container block-info video-block">
                                     @if($video->videoName)
                                         <h3 class="mb-4">{{ $video->videoName }}</h3>
                                     @endif
                                     @if($video->videoDate)
+                                        <hr>
                                         <div class="mb-4">{{ $video->videoDate }}</div>
                                     @endif
                                     <div class='content'>

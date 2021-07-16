@@ -4,28 +4,58 @@ body{
     font-size: 1.2vw;
 }
 
-th{
-    color: $color_1;
-    font-size: 1vw;
+table{
+    table-layout: fixed;
 
-    &:nth-last-of-type(1){
-        padding-right: 0;
+    th{
+        color: $color_1;
+        font-size: 1vw;
+    
+        &:nth-last-of-type(1){
+            padding-right: 0;
+        }
+    
+        &:first-of-type{
+            padding-left: 0;
+        }
     }
 
-    &:first-of-type{
-        padding-left: 0;
+    td{
+        color: $color_1;
+        font-size: 1.2vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-}
-
-td{
-    color: $color_1;
-    font-size: 1.2vw;
 }
 
 .pagination{
     justify-content: center;
+
+    a{
+        color: $color_3;
+
+        &:hover{
+            color: $color_3;
+        }
+    }
+
+    .active{
+        .page-link{
+            background-color: $color_3;
+            border-color: $color_3;
+        }
+    }
 }
 
-h1{
+h1, .h1{
     font-size: 2vw;
+}
+
+h3{
+    font-size: 1.4vw;
+}
+
+h2{
+    font-size: 1.4vw;
 }

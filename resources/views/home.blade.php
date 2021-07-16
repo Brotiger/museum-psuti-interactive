@@ -5,10 +5,10 @@
     <div class="container-fluid menu">
         <div class="row">
             <div class="col s3">
-                <a class="btn" href="{{ route('pguty') }}">КЭИС ПИИРС<br>ПГАТИ ПГУТИ</a>
+                <a class="btn" href="{{ route('time_line', ['name' => 'pguty']) }}">КЭИС ПИИРС<br>ПГАТИ ПГУТИ</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">КС ПГУТИ</a>
+                <a class="btn" href="{{ route('time_line', ['name' => 'ks']) }}">КС ПГУТИ</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">Филиалы</a>
@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="col s3">
-                <a class="btn" href="{{ route('employees_list',['name' => 'pguty']) }}">Сотрудники<br>(ПГУТИ)</a>
+                <a class="btn" href="{{ route('employees_list', ['name' => 'pguty']) }}">Сотрудники<br>(ПГУТИ)</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('graduates_list', ['name' => 'pguty']) }}">Выпускники<br>(ПГУТИ)</a>
