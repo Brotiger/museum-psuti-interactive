@@ -1,0 +1,33 @@
+.btn-home, .btn-top{
+    position: fixed;
+    z-index: 8999;
+    bottom: 1vw;
+    left: 1vw;
+    border: .25vw solid rgb(255, 255, 255);
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $background;
+    color: white;
+    transition: .1s;
+
+    i{
+        font-size: 2.5vw;
+    }
+
+    &:active{
+        box-shadow: inset 0px 0px 13px 5px $color_3;
+    }
+}
+
+.btn-top{
+    width: 3.5vw;
+    height: 3.5vw;
+    left: 5.5vw;
+    i{
+        font-size: 2vw;
+    }
+}

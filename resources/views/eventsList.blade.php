@@ -32,6 +32,7 @@
             </table>
             @if($events->count() == 0)
             <p class="text-center mt-5">Ничего не найдено</p>
+            <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
             @endif
         </div>
         {{ $events->appends($next_query)->links('vendor.pagination.bootstrap-4') }}

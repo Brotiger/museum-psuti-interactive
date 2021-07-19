@@ -36,6 +36,7 @@
             </table>
             @if($employees->count() == 0)
             <p class="text-center mt-5">Ничего не найдено</p>
+            <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
             @endif
         </div>
         {{ $employees->appends($next_query)->links('vendor.pagination.bootstrap-4') }}

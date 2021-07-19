@@ -6,6 +6,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\GraduateController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TimeLineController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,9 @@ Route::prefix('/events/{name}')->group(function(){
 });
 
 Route::get('/time_line/{name}', [TimeLineController::class, "index"])->name('time_line');
+
+Route::get('/museum_3d', function(){
+    return view("museum3D");
+})->name('museum_3d');
+
+Route::get('/page/{id}', [PageController::class, "index"])->name('page');

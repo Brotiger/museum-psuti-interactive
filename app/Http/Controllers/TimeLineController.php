@@ -26,17 +26,17 @@ class TimeLineController extends Controller
 
         $filterEvent = [
             ["date", ">=", Carbon::parse("1957-01-01")],
-            ["date", "<=", date("Y-m-d")]
+            ["date", "<=", Carbon::parse(date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")))]
         ];
 
         $filterEmployee = [
             ["hired", ">=", Carbon::parse("1957-01-01")],
-            ["hired", "<=", date("Y-m-d")]
+            ["hired", "<=", Carbon::parse(date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")))]
         ];
 
         $filterUnit = [
             ["creationDate", ">=", Carbon::parse("1957-01-01")],
-            ["creationDate", "<=", date("Y-m-d")]
+            ["creationDate", "<=", Carbon::parse(date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")))]
         ];
 
         if($request->input('dateFrom') && $request->input('dateTo')){

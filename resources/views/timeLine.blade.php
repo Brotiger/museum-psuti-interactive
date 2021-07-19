@@ -52,6 +52,7 @@
                     <input type="button" value="Подробнее" id="unitMore">
                     @else
                         <p class="text-center">Ничего не найдено</p>
+                        <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
                     @endif
                 </div>
             </div>
@@ -60,7 +61,7 @@
             <div>
                 <hr>
                 <div class="select-date mt-2 text-center" id="select-date">
-                    1957-01-01 | {{ date("Y-m-d") }}
+                    1957-01-01 | {{ date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")) }}
                 </div>
                 <hr>
                 <div class="block mt-4">
@@ -80,6 +81,7 @@
                     <input type="button" value="Подробнее" id="employeeMore">
                     @else
                         <p class="text-center">Ничего не найдено</p>
+                        <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
                     @endif
                 </div>
             </div>
@@ -110,6 +112,7 @@
                     <input type="button" value="Подробнее" id="eventMore">
                     @else
                         <p class="text-center">Ничего не найдено</p>
+                        <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
                     @endif
                 </div>
             </div>
@@ -129,7 +132,7 @@
         var yearTo = String(@php echo date('Y') @endphp);
 
         var monthFrom = '01';
-        var monthTo = '12';
+        var monthTo = String(@php echo date('m') @endphp);
 
         var dateFrom = yearFrom + '-' + monthFrom + '-01';
         var dateTo = yearTo + '-' + monthTo + '-' + daysInMonth(monthTo, yearTo);

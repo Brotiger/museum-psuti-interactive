@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="block-container">
-                                    <img src="{{ $employee->img? $storageServer . $employee->img : '/images/no-profile.png'}}" class="personal-photo">
+                                    <img {{ $employee->img? 'fullscreen' : '' }} src="{{ $employee->img? $storageServer . $employee->img : '/images/no-profile.png'}}" class="personal-photo">
                                 </div>
                                 @if(count($employee->titles))
                                     <div class="block-container block-info">
@@ -137,7 +137,7 @@
                                         <div class="mb-4">{{ $photo->photoDate }}</div>
                                     @endif
                                     <div class='content'>
-                                        <img src="{{ $storageServer . $photo->photo }}" class="user-photo">
+                                        <img fullscreen src="{{ $storageServer . $photo->photo }}" class="user-photo">
                                     </div>
                                 </div>
                             @endforeach
@@ -153,7 +153,7 @@
                                         <div class="mb-4">{{ $video->videoDate }}</div>
                                     @endif
                                     <div class='content'>
-                                        <iframe src="{{ 'https://www.youtube.com/embed/'.$video->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe src="{{ 'https://www.youtube.com/embed/'.$video->video.'?fs=0&rel=0' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             @endforeach

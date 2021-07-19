@@ -67,7 +67,7 @@
                                         <div class="mb-4">{{ $photo->photoDate }}</div>
                                     @endif
                                     <div class='content'>
-                                        <img src="{{ $storageServer . $photo->photo }}" class="user-photo">
+                                        <img fullscreen src="{{ $storageServer . $photo->photo }}" class="user-photo">
                                     </div>
                                 </div>
                             @endforeach
