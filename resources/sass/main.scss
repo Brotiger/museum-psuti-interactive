@@ -67,3 +67,16 @@ h2{
 .fa-whmcs{
     font-size: 3vw;
 }
+
+.helpWindow{
+    position: relative;
+}
+
+.closeWindow{
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+    background-color: transparent;
+    border: none;
+    color: white;
+}

@@ -19,7 +19,7 @@
                                         <div class="mt-4">
                                         @if($unit->creationDate)
                                             <div class="form-group my-3 row">
-                                                <label for="dateBirthday" class="col-6 col-form-label">Дата рождения</label>
+                                                <label for="dateBirthday" class="col-6 col-form-label">Дата создания</label>
                                                 <div class="col-6 date">
                                                     <span id="dateBirthday">{{ $unit->creationDate }}</span>
                                                 </div>
@@ -27,7 +27,7 @@
                                         @endif
                                         @if($unit->terminationDate)
                                             <div class="form-group my-3 row">
-                                                <label for="hired" class="col-6 col-form-label">Дата приема</label>
+                                                <label for="hired" class="col-6 col-form-label">Дата прекращения</label>
                                                 <div class="col-6 date">
                                                     <span id="hired">{{ $unit->terminationDate }}</span>
                                                 </div>
@@ -48,7 +48,7 @@
                     <div class="col-8 right-info">
                         @if($unit->description)
                             <div class="block-container personal-info">
-                                <h2 class="mb-4">Описание</h2>
+                                <h2 class="mb-4 h1">Описание</h2>
                                 <div class="form-group row">
                                     <div class="col-12 description_block">
                                         {!! $unit->description !!}

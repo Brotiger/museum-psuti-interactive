@@ -55,10 +55,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $("[fullscreen]").click(function(){
-            $("#fullscreen img").attr("src", $(this).attr("src"));
-            $(".cover, #fullscreen").show();
-            $('body').css('overflow', 'hidden');
+        var fullscreenAllow = true;
+
+        $('body').delegate('[fullscreen]', 'click', function(){
+            if(fullscreenAllow){
+                $("#fullscreen img").attr("src", $(this).attr("src"));
+                $(".cover, #fullscreen").show();
+                $('body').css('overflow', 'hidden');
+            }
         });
 
         $("#close-full-photo").click(function(){
@@ -67,13 +71,24 @@
         });
 
         $(document).ready(function(){
+            showBtn();
+        });
+
+        $("[closeWindow]").click(function(){
+            $(this).parent().attr('active', 'false');
+            $(this).parent().hide();
+        });
+
+        function showBtn(){
             if (location.pathname != "/"){
                 if ($(document).height() > $(window).height()) {
                     $("#topBtn").show();
+                }else{
+                    $("#topBtn").hide();
                 }
                 $("#homeBtn").show();
             }
-        });
+        }
     </script>
     <!--<script src="/js/loading.js" defer></script>-->
     <!--<script>

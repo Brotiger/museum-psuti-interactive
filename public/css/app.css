@@ -59,6 +59,19 @@ h2 {
   font-size: 3vw;
 }
 
+.helpWindow {
+  position: relative;
+}
+
+.closeWindow {
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
 .menuContainer {
   height: 100vh;
   position: relative;
@@ -336,16 +349,13 @@ nav li {
 .fullscreen .close-full-photo i {
   font-size: 2vw;
 }
-.fullscreen .close-full-photo:active {
-  color: red;
-}
 .fullscreen .fullscreen-container img {
   z-index: 9999;
   position: fixed;
-  width: 80%;
-  height: 80%;
-  left: 10%;
-  top: 10%;
+  width: 85%;
+  height: 85%;
+  left: 7.5%;
+  top: 7.5%;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -396,10 +406,10 @@ nav li {
   margin-right: 1vw;
   margin-bottom: 4vw;
 }
-.page .col-12 {
+.page .col-3 {
   padding-right: 0.5vw;
 }
-.page .col-8 {
+.page .col-9 {
   padding-left: 0.5vw;
 }
 .page a {
@@ -456,4 +466,27 @@ nav li {
 }
 .btn-top i {
   font-size: 2vw;
+}
+
+#photoArhiveCarousel {
+  background-color: #617baa;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+#photoArhiveCarousel .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#photoArhiveCarousel .item img {
+  max-height: calc(100vh - 16.4vw);
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.museum3d {
+  display: block;
+  border: 0.5vw solid #617baa;
+  height: calc(100vh - 10vw);
 }
