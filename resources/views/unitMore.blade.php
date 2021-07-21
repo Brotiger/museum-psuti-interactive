@@ -58,7 +58,7 @@
                         @endif
                         @if(count($unit->photos))
                             @foreach($unit->photos as $index => $photo)
-                                <div class="block-container block-info photo-block">
+                                <div class="block-container {{ $index == 0? 'block' : 'block-info' }} photo-block">
                                     @if($photo->photoName)
                                         <h3 class="mb-4">{{ $photo->photoName }}</h3>
                                     @endif
@@ -74,7 +74,7 @@
                         @endif
                         @if(count($unit->videos))
                             @foreach($unit->videos as $index => $video)
-                                <div class="block-container block-info video-block">
+                                <div class="block-container {{ count($unit->photos) == 0 && $index == 0? 'block' : 'block-info' }} video-block">
                                     @if($video->videoName)
                                         <h3 class="mb-4">{{ $video->videoName }}</h3>
                                     @endif
@@ -83,7 +83,10 @@
                                         <div class="mb-4">{{ $video->videoDate }}</div>
                                     @endif
                                     <div class='content'>
-                                        <iframe src="{{ 'https://www.youtube.com/embed/'.$video->video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div class="item" fullscreen-video  videoId="{{ $video->video }}" videoDate="{{ $video->videoDate }}" videoName="{{ $video->videoName }}">
+                                            <i class="play-video far fa-play-circle"></i>
+                                            <img src="{{ $video->snippet }}">
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

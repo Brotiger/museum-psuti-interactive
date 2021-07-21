@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Unit;
 
+use YoutubeApiService;
+
 class UnitController extends Controller
 {
     public function unit_more($name, $id = null){
@@ -33,6 +35,10 @@ class UnitController extends Controller
                 ['id', $id],
             ])->get()->first();
             if($unit->exists()){
+                foreach($unit->videos as $index => $video){
+                    $snippet = YoutubeApiService::getSnippet($video->video);
+                    $unit->videos[$index]['snippet'] = $snippet;
+                }
                 $params['unit'] = $unit;
             }else{
                 return redirect(route('units_list'));

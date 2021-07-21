@@ -37,20 +37,29 @@
                                 <div class="block-info tabcontent helpWindow" ell="history" active=true>
                                     <button closeWindow class="closeWindow"><i class="fas fa-times"></i></button>
                                     <h2 class="mb-4">Подсказка</h2>
-                                    <p class="my-0">Если вы являетесь сотрудником ПГУТИ или КС ПГУТИ вы можете написать свою историю от первого лица по адресу enter.museum.psuti.ru для ПГУТИ или по адресу enter.museum.ks.psuti.ru для КС ПГУТИ.</p>
+                                    <p class="my-0">Если вы являетесь сотрудником ПГУТИ вы можете написать свою историю от первого лица по адресу enter.museum.psuti.ru.</p>
                                 </div>
                                 @if(count($page->photos))
                                 <div class="block-info tabcontent" ell="photoArchive" id="photo-info">
                                     <h2 class="mb-4">Информация о фото</h2>
-                                    <div id="photoDateBlock" class="form-group row">
-                                        <label for="photoDate" class="col-6 col-form-label">Дата фото</label>
-                                        <div class="col-6 date">
-                                            <span id="photoDate"></span>
-                                        </div>
-                                    </div>
                                     <div>
-                                        <hr>
                                         <p class="my-0" id="photoName"></p>
+                                        <hr>
+                                    </div>
+                                    <div id="photoDateBlock" class="form-group row">
+                                        <span id="photoDate"></span>
+                                    </div>
+                                </div>
+                                @endif
+                                @if(count($page->videos))
+                                <div class="block-info tabcontent" ell="videoArchive" id="video-info">
+                                    <h2 class="mb-4">Информация о видео</h2>
+                                    <div>
+                                        <p class="my-0" id="videoName"></p>
+                                        <hr>
+                                    </div>
+                                    <div id="videoDateBlock" class="form-group row">
+                                        <span id="videoDate"></span>
                                     </div>
                                 </div>
                                 @endif
@@ -119,6 +128,14 @@
                             </div>
                             <div class="block-info">
                                 @if(count($page->videos))
+                                    <div class="owl-carousel owl-theme" id="videoArhiveCarousel">
+                                        @foreach($page->videos as $index => $video)
+                                            <div class="item" fullscreen-video  videoId="{{ $video->video }}" videoDate="{{ $video->videoDate }}" videoName="{{ $video->videoName }}">
+                                                <i class="play-video far fa-play-circle"></i>
+                                                <img src="{{ $video->snippet }}">
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 @else
                                     <p class="text-center">Ничего не найдено</p>
                                     <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
@@ -151,6 +168,24 @@
     @section('custom_js')
     <script src="/js/owl.carousel.min.js"></script>
     <script>
+        $('#videoArhiveCarousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            items: 1,
+            dots: false,
+            video:true,
+        }).on('drag.owl.carousel', function(){
+            fullscreenAllow = false;
+        }).on('dragged.owl.carousel', function(){
+            setTimeout(() => {
+                fullscreenAllow = true;
+            }, 1);
+            setVideoInfo();
+        });
+
+        setVideoInfo();
+
         $('#photoArhiveCarousel').owlCarousel({
             loop: true,
             margin: 10,
@@ -169,8 +204,8 @@
         setPhotoInfo();
 
         function setPhotoInfo(){
-            let photoDate = $(".owl-item.active img").attr('photoDate');
-            let photoName = $(".owl-item.active img").attr('photoName');
+            let photoDate = $("#photoArhiveCarousel .owl-item.active img").attr('photoDate');
+            let photoName = $("#photoArhiveCarousel .owl-item.active img").attr('photoName');
 
             if(!photoDate && !photoName){
                 $("#photo-info").hide();
@@ -198,6 +233,41 @@
 
             $('#photoDate').text(photoDate);
             $('#photoName').text(photoName);
+        }
+
+        function setVideoInfo(){
+            let videoDate = $("#videoArhiveCarousel .owl-item.active .item").attr('videoDate');
+            let videoName = $("#videoArhiveCarousel .owl-item.active .item").attr('videoName');
+
+            console.log(videoDate);
+            console.log(videoName);
+
+            if(!videoDate && !videoName){
+                $("#video-info").hide();
+            }else{
+                $("#video-info").show();
+            }
+
+            if(!videoDate){
+                $("#videoDateBlock").hide();
+            }else{
+                $("#videoDateBlock").show();
+            }
+
+            if(!videoName){
+                $("#videoName").hide();
+            }else{
+                $("#videoName").show();
+            }
+
+            if(!videoDate || !videoName){
+                $("#video-info hr").hide();
+            }else{
+                $("#video-info hr").show();
+            }
+
+            $('#videoDate').text(videoDate);
+            $('#videoName').text(videoName);
         }
     </script>
     <script>

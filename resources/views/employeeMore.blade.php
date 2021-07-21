@@ -153,7 +153,10 @@
                                         <div class="mb-4">{{ $video->videoDate }}</div>
                                     @endif
                                     <div class='content'>
-                                        <iframe src="{{ 'https://www.youtube.com/embed/'.$video->video.'?fs=0&rel=0' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div class="item" fullscreen-video  videoId="{{ $video->video }}" videoDate="{{ $video->videoDate }}" videoName="{{ $video->videoName }}">
+                                            <i class="play-video far fa-play-circle"></i>
+                                            <img src="{{ $video->snippet }}">
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

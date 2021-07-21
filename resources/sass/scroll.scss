@@ -1,4 +1,4 @@
-#photoArhiveCarousel{
+#photoArhiveCarousel, #videoArhiveCarousel{
     background-color: $background;
     padding: .5vw;
     cursor: pointer;
@@ -7,11 +7,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         img{
-            max-height: calc(100vh - 16.4vw);
+            height: calc(100vh - 16.4vw);
             display: block;
             object-fit: contain;
         }
     }
+}
+
+.play-video{
+    font-size: 4.4vw;
+    z-index: 4;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

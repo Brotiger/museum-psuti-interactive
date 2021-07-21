@@ -21,6 +21,12 @@
                 <img src="">
             </div>
         </div>
+        <div class="fullscreen" id="fullscreen-video" style="display: none">
+            <button class="close-full-photo" id="close-full-video"><i class="fas fa-times"></i></button>
+            <div class="fullscreen-container">
+                <iframe src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
         <!--<div class="preloader">
             <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path fill="currentColor"
@@ -65,8 +71,23 @@
             }
         });
 
+        $('body').delegate('[fullscreen-video]', 'click', function(){
+            if(fullscreenAllow){
+                $(this).find('i').animate({ 'font-size': '3.9vw'  }, 100).animate({ 'font-size': '4.4vw'  }, 100);
+                $("#fullscreen-video iframe").attr("src", 'https://www.youtube.com/embed/' + $(this).attr("videoId") + '?fs=0&rel=0&enablejsapi=1&autoplay=1');
+                $(".cover, #fullscreen-video").show();
+                $('body').css('overflow', 'hidden');
+            }
+        });
+
         $("#close-full-photo").click(function(){
             $("#fullscreen, .cover").hide();
+            $('body').css('overflow', 'auto');
+        });
+
+        $("#close-full-video").click(function(){
+            $("#fullscreen-video iframe").attr("src", "");
+            $("#fullscreen-video, .cover").hide();
             $('body').css('overflow', 'auto');
         });
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Event;
 
+use YoutubeApiService;
+
 class EventController extends Controller
 {
     public function event_more($name, $id = null){
@@ -33,6 +35,11 @@ class EventController extends Controller
                 ['id', $id],
             ])->get()->first();
             if($event->exists()){
+                foreach($event->videos as $index => $video){
+                    $snippet = YoutubeApiService::getSnippet($video->video);
+                    $event->videos[$index]['snippet'] = $snippet;
+                }
+
                 $params['event'] = $event;
             }else{
                 return redirect(route('events_list'));

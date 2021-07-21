@@ -23,6 +23,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
+use YoutubeApiService;
+
 class EmployeeController extends Controller
 {
     public function employee_more($name, $id = null){
@@ -37,6 +39,7 @@ class EmployeeController extends Controller
         }else{
             return;
         }
+
         $storageServer .= '/storage/';
 
         $units = Unit::orderBy('fullUnitName')->get();
@@ -50,6 +53,12 @@ class EmployeeController extends Controller
                 ['id', $id],
             ])->get()->first();
             if($employee->exists()){
+
+                foreach($employee->videos as $index => $video){
+                    $snippet = YoutubeApiService::getSnippet($video->video);
+                    $employee->videos[$index]['snippet'] = $snippet;
+                }
+
                 $params['employee'] = $employee;
             }else{
                 return redirect(route('employees_list'));
@@ -60,6 +69,7 @@ class EmployeeController extends Controller
     }
 
     public function employees_list(Request $request, $name){
+
         $titleName = '';
         if($name == "pguty"){
             DB::setDefaultConnection('pguty');
