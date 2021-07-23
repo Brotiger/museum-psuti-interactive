@@ -21,7 +21,7 @@
         align-items: center;
     }
 
-    .pageBtn{
+    input{
         font-size: 1.2vw;
         padding: .5vh .9vw;
         color: white;
@@ -29,10 +29,10 @@
         border: none;
         border-radius: .1vw;
         outline: none;
+        width: 100%;
         //box-shadow: 0px 0px .5vw rgba(27, 37, 61, 0.3);
         border: .1vw solid $color_4;
-        transition: .1s;
-        width: 100%;
+        transition: box-shadow .1s ease;
         text-align: left;
     
         &:active{

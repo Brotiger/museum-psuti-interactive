@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fuild info-page">
                 <div class="row mb-3">
-                    <div class="col-4 left-info">
+                    <div class="col-4 left-info wow slideInLeft object-non-visible">
                         <div class="row">
                             <div class="col-12">
                                 <div class="block-container">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="col-8 right-info">
-                        <div class="block-container personal-info">
+                        <div class="block-container personal-info wow slideInDown object-non-visible">
                             <h1 class="mb-0">{{ $employee->lastName . ' ' . $employee->firstName . ' ' .$employee->secondName }}</h1>
                             @if($employee->dateBirthday || $employee->hired || $employee->fired)
                                 <div class="my-4">
@@ -128,7 +128,7 @@
                         </div>
                         @if(count($employee->photos))
                             @foreach($employee->photos as $index => $photo)
-                                <div class="block-container block-info photo-block">
+                                <div class="block-container block-info photo-block wow slideInRight object-non-visible">
                                     @if($photo->photoName)
                                         <h3 class="mb-4">{{ $photo->photoName }}</h3>
                                     @endif
@@ -144,7 +144,7 @@
                         @endif
                         @if(count($employee->videos))
                             @foreach($employee->videos as $index => $video)
-                                <div class="block-container block-info video-block">
+                                <div class="block-container block-info video-block wow slideInRight object-non-visible">
                                     @if($video->videoName)
                                         <h3 class="mb-4">{{ $video->videoName }}</h3>
                                     @endif

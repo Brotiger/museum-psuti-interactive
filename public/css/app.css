@@ -2,6 +2,7 @@ body {
   background: #617baa;
   color: #fff;
   font-size: 1.2vw;
+  overflow: hidden;
 }
 
 table {
@@ -72,6 +73,11 @@ h2 {
   color: white;
 }
 
+.object-non-visible {
+  opacity: 0 !important;
+  display: none !important;
+}
+
 .menuContainer {
   height: 100vh;
   position: relative;
@@ -89,7 +95,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.1s;
+  transition: box-shadow 0.1s ease;
   font-size: 1.5vw;
   background: #6986bd;
   color: #fff;
@@ -102,6 +108,8 @@ h2 {
   font-size: 1.3vw;
 }
 .menuContainer .menu .col {
+  box-sizing: content-box;
+  height: 27.3vh;
   padding: 1vw;
   padding-left: 0;
 }
@@ -184,6 +192,9 @@ button i {
   margin-left: 1vw;
   margin-right: 1vw;
   margin-top: 3vw;
+}
+.dbList td {
+  cursor: pointer;
 }
 
 .info-page {
@@ -419,7 +430,7 @@ nav li {
   display: flex;
   align-items: center;
 }
-.page .pageBtn {
+.page input {
   font-size: 1.2vw;
   padding: 0.5vh 0.9vw;
   color: white;
@@ -427,12 +438,12 @@ nav li {
   border: none;
   border-radius: 0.1vw;
   outline: none;
-  border: 0.1vw solid #546b96d3;
-  transition: 0.1s;
   width: 100%;
+  border: 0.1vw solid #546b96d3;
+  transition: box-shadow 0.1s ease;
   text-align: left;
 }
-.page .pageBtn:active {
+.page input:active {
   box-shadow: inset 0px 0px 13px 5px #4b6088;
 }
 
@@ -450,7 +461,7 @@ nav li {
   justify-content: center;
   background-color: #617baa;
   color: white;
-  transition: 0.1s;
+  transition: box-shadow 0.1s ease;
 }
 .btn-home i, .btn-top i {
   font-size: 2.5vw;

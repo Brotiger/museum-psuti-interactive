@@ -34,7 +34,7 @@
                 @endfor
             </div>
             <hr>
-            <div>
+            <div class="wow slideInLeft object-non-visible">
                 <div class="block mt-4">
                     <h2 class='text-center'>Cформированные подразделения</h2>
                 </div>
@@ -64,25 +64,27 @@
                     1957-01-01 | {{ date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")) }}
                 </div>
                 <hr>
-                <div class="block mt-4">
-                    <h2 class='text-center'>Пришедшие сотрудники</h2>
-                </div>
-                <div class="block list center" id="employeeList">
-                    @if(count($employees))
-                        <ul>
-                            @foreach($employees as $employee)
-                                <li>{{ $employee->lastName }} {{ $employee->firstName }} {{ $employee->secondName }}</li>
-                                <hr>
-                            @endforeach
-                            @if(count($employees) >= 7)
-                                <li class="text-center">. . .</li>
-                            @endif
-                        </ul>
-                    <input type="button" value="Подробнее" id="employeeMore">
-                    @else
-                        <p class="text-center">Ничего не найдено</p>
-                        <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
-                    @endif
+                <div class="wow bounceInUp object-non-visible">
+                    <div class="block mt-4">
+                        <h2 class='text-center'>Пришедшие сотрудники</h2>
+                    </div>
+                    <div class="block list center" id="employeeList">
+                        @if(count($employees))
+                            <ul>
+                                @foreach($employees as $employee)
+                                    <li>{{ $employee->lastName }} {{ $employee->firstName }} {{ $employee->secondName }}</li>
+                                    <hr>
+                                @endforeach
+                                @if(count($employees) >= 7)
+                                    <li class="text-center">. . .</li>
+                                @endif
+                            </ul>
+                        <input type="button" value="Подробнее" id="employeeMore">
+                        @else
+                            <p class="text-center">Ничего не найдено</p>
+                            <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
@@ -94,7 +96,7 @@
                 @endfor
             </div>
             <hr>
-            <div>
+            <div class="wow slideInRight object-non-visible">
                 <div class="block mt-4">
                     <h2 class='text-center'>Прошедшие события</h2>
                 </div>

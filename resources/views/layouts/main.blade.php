@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/app.css">
     @yield('custom_css')
+    <link rel="stylesheet" href="/css/animate.css">
     <script src="https://kit.fontawesome.com/4f55501494.js" crossorigin="anonymous"></script>
     <script src="/js/app.js" defer></script>
 </head>
@@ -47,12 +48,11 @@
         </header>
         @yield('content')
         <div>
-            <button class="btn-home" onclick="location.href='/'" style="display: none" id="homeBtn">
+            @if(!Request::is('/'))
+            <button class="btn-home wow bounceInUp object-non-visible" onclick="location.href='/'" id="homeBtn">
                 <i class="fas fa-home"></i>
             </button>
-            <button class="btn-top" onclick="location.href='#top'" style="display: none" id="topBtn">
-                <i class="fas fa-arrow-up"></i>
-            </button>
+            @endif
         </div>
         <footer class="text-center">
             <a href="#">© ПГУТИ & Brotiger @php echo date('Y') @endphp</a>
@@ -60,6 +60,7 @@
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/wow.min.js"></script>
     <script>
         var fullscreenAllow = true;
 
@@ -91,25 +92,10 @@
             $('body').css('overflow', 'auto');
         });
 
-        $(document).ready(function(){
-            showBtn();
-        });
-
         $("[closeWindow]").click(function(){
             $(this).parent().attr('active', 'false');
-            $(this).parent().hide();
+            $(this).parent().fadeOut(550);
         });
-
-        function showBtn(){
-            if (location.pathname != "/"){
-                if ($(document).height() > $(window).height()) {
-                    $("#topBtn").show();
-                }else{
-                    $("#topBtn").hide();
-                }
-                $("#homeBtn").show();
-            }
-        }
     </script>
     <!--<script src="/js/loading.js" defer></script>-->
     <!--<script>
@@ -117,5 +103,11 @@
             stopLoading();
         });
     </script>-->
+    <script>
+        $(document).ready(function(){
+            new WOW().init();
+            $(".object-non-visible").removeClass("object-non-visible");
+        });
+    </script>
     @yield('custom_js')
 </html>

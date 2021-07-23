@@ -12,63 +12,65 @@
                     <div class="col-3">
                         <div class="row">
                             <div class="col-12">
-                                <div class="block-container block">
-                                    <h2 class="mb-0 h1">{{ $page->title }}</h2>
+                                <div class="wow slideInLeft object-non-visible">
+                                    <div class="block-container block">
+                                        <h2 class="mb-0 h1">{{ $page->title }}</h2>
+                                    </div>
+                                    <div class="block-container block-info">
+                                        <div>
+                                            <input type="button" value="Главная"  onclick="openCity(event, 'page')" id="defaultTab">
+                                        </div>
+                                        <div>
+                                            <input type="button" value="Фото архив" onclick="openCity(event, 'photoArchive')">
+                                        </div>
+                                        <div>
+                                            <input type="button" value="Видео архив" onclick="openCity(event, 'videoArchive')">
+                                        </div>
+                                        <div>
+                                            <input type="button" value="История от первого лица" onclick="openCity(event, 'history')">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="block-container block-info">
-                                    <div>
-                                        <input type="button" value="Главная" class="pageBtn" onclick="openCity(event, 'page')" id="defaultTab">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="Фото архив" class="pageBtn" onclick="openCity(event, 'photoArchive')">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="Видео архив" class="pageBtn" onclick="openCity(event, 'videoArchive')">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="История от первого лица" class="pageBtn" onclick="openCity(event, 'history')">
-                                    </div>
-                                </div>
-                                <div class="block-info tabcontent helpWindow" ell="page" active=true>
+                                <div class="block-info tabcontent helpWindow wow slideInLeft object-non-visible" ell="page" active=true>
                                     <button closeWindow class="closeWindow"><i class="fas fa-times"></i></button>
                                     <h2 class="mb-4">Подсказка</h2>
                                     <p class="my-0">Для увеличения размера фотографии нажмите на нее.</p>
                                 </div>
-                                <div class="block-info tabcontent helpWindow" ell="history" active=true>
+                                <div class="block-info tabcontent helpWindow wow slideInLeft object-non-visible" ell="history" style="display: none" active=true>
                                     <button closeWindow class="closeWindow"><i class="fas fa-times"></i></button>
                                     <h2 class="mb-4">Подсказка</h2>
                                     <p class="my-0">Если вы являетесь сотрудником ПГУТИ вы можете написать свою историю от первого лица по адресу enter.museum.psuti.ru.</p>
                                 </div>
                                 @if(count($page->photos))
-                                <div class="block-info tabcontent" ell="photoArchive" id="photo-info">
+                                <div class="block-info tabcontent" ell="photoArchive" id="photo-info" style="display: none">
                                     <h2 class="mb-4">Информация о фото</h2>
-                                    <div>
-                                        <p class="my-0" id="photoName"></p>
+                                    <div id="photoNameBlock" style="display: {{ $page->photos[0]->photoName? 'block': 'none' }}">
+                                        <p class="my-0" id="photoName">{{ $page->photos[0]->photoName }}</p>
                                         <hr>
                                     </div>
-                                    <div id="photoDateBlock" class="form-group row">
-                                        <span id="photoDate"></span>
+                                    <div id="photoDateBlock" class="form-group row" style="display: {{ $page->photos[0]->photoDate? 'block': 'none' }}">
+                                        <span id="photoDate">{{ $page->photos[0]->photoDate }}</span>
                                     </div>
                                 </div>
                                 @endif
                                 @if(count($page->videos))
-                                <div class="block-info tabcontent" ell="videoArchive" id="video-info">
+                                <div class="block-info tabcontent" ell="videoArchive" id="video-info" style="display: none">
                                     <h2 class="mb-4">Информация о видео</h2>
-                                    <div>
-                                        <p class="my-0" id="videoName"></p>
+                                    <div id="videoNameBlock" style="display: {{ $page->videos[0]->videoName? 'block': 'none' }}">
+                                        <p class="my-0" id="videoName">{{ $page->videos[0]->videoName }}</p>
                                         <hr>
                                     </div>
-                                    <div id="videoDateBlock" class="form-group row">
-                                        <span id="videoDate"></span>
+                                    <div id="videoDateBlock" class="form-group row" style="display: {{ $page->videos[0]->videoDate? 'block': 'none' }}">
+                                        <span id="videoDate">{{ $page->videos[0]->videoDate }}</span>
                                     </div>
                                 </div>
                                 @endif
-                                <div class="block-info tabcontent helpWindow" ell="photoArchive" active=true>
+                                <div class="block-info tabcontent helpWindow wow slideInLeft object-non-visible" ell="photoArchive" style="display: none" active=true>
                                     <button closeWindow class="closeWindow"><i class="fas fa-times"></i></button>
                                     <h2 class="mb-4">Подсказка</h2>
                                     <p class="my-0">Для смены просматриваемой фотографии в фото архиве, проведите по ней рукой с права на лево (или в обратном направлении).</p>
                                 </div>
-                                <div class="block-info tabcontent helpWindow" ell="videoArchive" active=true>
+                                <div class="block-info tabcontent helpWindow wow slideInLeft object-non-visible" ell="videoArchive" style="display: none" active=true>
                                     <button closeWindow class="closeWindow"><i class="fas fa-times"></i></button>
                                     <h2 class="mb-4">Подсказка</h2>
                                     <p class="my-0">Для смены просматриваемой видео в видео архиве, проведите по нему рукой с права на лево (или в обратном направлении).</p>
@@ -77,7 +79,7 @@
                         </div>
                     </div>
                     <div class="col-9">
-                        <div class="tabcontent" ell="page">
+                        <div class="tabcontent wow slideInRight object-non-visible" ell="page">
                             <div class="block">
                                 <h2 class="mb-0 h1">Главная</h2>
                             </div>
@@ -103,7 +105,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="tabcontent" ell="photoArchive">
+                        <div class="tabcontent wow slideInDown object-non-visible" ell="photoArchive" style="display: none">
                             <div class="block">
                                 <h2 class="mb-0 h1">Фото архив</h2>
                             </div>
@@ -122,7 +124,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="tabcontent" ell="videoArchive">
+                        <div class="tabcontent wow slideInDown object-non-visible" ell="videoArchive" style="display: none">
                             <div class="block">
                                 <h2 class="mb-0 h1">Видео архив</h2>
                             </div>
@@ -142,11 +144,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="tabcontent history-block" ell="history">
-                            <div class="block">
+                        <div class="tabcontent history-block" ell="history" style="display: none">
+                            <div class="block wow slideInDown object-non-visible">
                                 <h2 class="mb-0 h1">История от первого лица</h2>
                             </div>
-                            <div class="block-info">
+                            <div class="block-info wow slideInRight object-non-visible">
                                 @if(count($page->history))
                                     @foreach($page->history as $index => $history)
                                         <div>
@@ -184,8 +186,6 @@
             setVideoInfo();
         });
 
-        setVideoInfo();
-
         $('#photoArhiveCarousel').owlCarousel({
             loop: true,
             margin: 10,
@@ -200,8 +200,6 @@
             }, 1);
             setPhotoInfo();
         });
-
-        setPhotoInfo();
 
         function setPhotoInfo(){
             let photoDate = $("#photoArhiveCarousel .owl-item.active img").attr('photoDate');
@@ -220,9 +218,9 @@
             }
 
             if(!photoName){
-                $("#photoName").hide();
+                $("#photoNameBlock").hide();
             }else{
-                $("#photoName").show();
+                $("#photoNameBlock").show();
             }
 
             if(!photoDate || !photoName){
@@ -255,9 +253,9 @@
             }
 
             if(!videoName){
-                $("#videoName").hide();
+                $("#videoNameBlock").hide();
             }else{
-                $("#videoName").show();
+                $("#videoNameBlock").show();
             }
 
             if(!videoDate || !videoName){
@@ -295,7 +293,6 @@
             });
 
             evt.currentTarget.className += " active";
-            showBtn();
         }
 
         document.getElementById("defaultTab").click();

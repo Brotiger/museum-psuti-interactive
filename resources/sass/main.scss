@@ -2,6 +2,7 @@ body{
     background: $background;
     color: $color_1;
     font-size: 1.2vw;
+    overflow: hidden;
 }
 
 table{
@@ -79,4 +80,9 @@ h2{
     background-color: transparent;
     border: none;
     color: white;
+}
+
+.object-non-visible {
+    opacity: 0 !important;
+    display: none !important;
 }

@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fuild info-page">
                 <div class="row mb-3">
-                    <div class="col-4 left-info">
+                    <div class="col-4 left-info wow slideInLeft object-non-visible">
                         <div class="row">
                             <div class="col-12">
                                 <div class="block-container block">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 right-info">
+                    <div class="col-8 right-info wow slideInRight object-non-visible">
                         @if($event->description)
                             <div class="block-container personal-info">
                                 <h2 class="mb-4">Описание</h2>

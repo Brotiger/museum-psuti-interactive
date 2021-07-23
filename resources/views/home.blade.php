@@ -2,7 +2,7 @@
 @section('title', 'Главная')
 @section('content')
 <div class="menuContainer">
-    <div class="container-fluid menu">
+    <div class="container-fluid menu wow fadeIn object-non-visible">
         <div class="row row-1">
             <div class="col s3">
                 <a class="btn" href="{{ route('time_line', ['name' => 'pguty']) }}">КЭИС ПИИРС<br>ПГАТИ ПГУТИ</a>
