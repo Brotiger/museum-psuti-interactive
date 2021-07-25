@@ -1,8 +1,10 @@
 @if(count($units))
     <ul>
-        @foreach($units as $unit)
+        @foreach($units as $index => $unit)
             <li>{{ $unit->fullUnitName }} {{ $unit->shortUnitName ? '('. $unit->shortUnitName .')' : '' }}</li>
-            <hr>
+            @if($index != count($units) - 1)
+                <hr>
+            @endif
         @endforeach
         @if(count($units) >= 7)
             <li class="text-center">. . .</li>

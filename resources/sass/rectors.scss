@@ -1,0 +1,30 @@
+.rectors-page{
+    padding-top: 4vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 4vw;
+
+    ul{
+        padding-left: 2vw;
+    }
+
+    .row:not(:first-child){
+        margin-top: 1vw;
+    }
+
+    .row:nth-child(even) .col-4{
+        padding-right: .5vw;
+    }
+
+    .row:nth-child(even) .col-8{
+        padding-left: .5vw;
+    }
+
+    .row:nth-child(odd) .col-4{
+        padding-left: .5vw;
+    }
+
+    .row:nth-child(odd) .col-8{
+        padding-right: .5vw;
+    }
+}

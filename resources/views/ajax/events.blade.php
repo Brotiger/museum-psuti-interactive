@@ -1,8 +1,10 @@
 @if(count($events))
     <ul>
-        @foreach($events as $event)
+        @foreach($events as $index => $event)
             <li>{{ $event->name }}</li>
-            <hr>
+            @if($index != count($events) - 1)
+                <hr>
+            @endif
         @endforeach
         @if(count($events) >= 7)
             <li class="text-center">. . .</li>

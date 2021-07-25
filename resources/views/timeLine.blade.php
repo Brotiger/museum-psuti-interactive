@@ -41,9 +41,11 @@
                 <div class="block list" id="unitList">
                     @if(count($units))
                         <ul>
-                            @foreach($units as $unit)
+                            @foreach($units as $index => $unit)
                                 <li>{{ $unit->fullUnitName }} {{ $unit->shortUnitName ? '('. $unit->shortUnitName .')' : '' }}</li>
-                                <hr>
+                                @if($index != count($units) - 1)
+                                    <hr>
+                                @endif
                             @endforeach
                             @if(count($units) >= 7)
                                 <li class="text-center">. . .</li>
@@ -71,9 +73,11 @@
                     <div class="block list center" id="employeeList">
                         @if(count($employees))
                             <ul>
-                                @foreach($employees as $employee)
+                                @foreach($employees as $index => $employee)
                                     <li>{{ $employee->lastName }} {{ $employee->firstName }} {{ $employee->secondName }}</li>
-                                    <hr>
+                                    @if($index != count($employees) - 1)
+                                        <hr>
+                                    @endif
                                 @endforeach
                                 @if(count($employees) >= 7)
                                     <li class="text-center">. . .</li>
@@ -103,9 +107,11 @@
                 <div class="block list" id="eventList">
                     @if(count($events))
                         <ul>
-                            @foreach($events as $event)
+                            @foreach($events as $index => $event)
                                 <li>{{ $event->name }}</li>
-                                <hr>
+                                @if($index != count($events) - 1)
+                                    <hr>
+                                @endif
                             @endforeach
                             @if(count($events) >= 7)
                                 <li class="text-center">. . .</li>

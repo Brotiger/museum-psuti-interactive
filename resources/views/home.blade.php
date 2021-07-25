@@ -31,7 +31,7 @@
                 <a class="btn" href="{{ route('page', ['alias' => 'SRTTTS']) }}">СРТТЦ</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">Ректоры</a>
+                <a class="btn" href="{{ route('rectors') }}">Ректоры</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры</a>
@@ -84,7 +84,7 @@
     <script>
         $("#PDZK").click(function(){
             $(".cover, #WindowPDZK").show(0, function(){
-                $('#WindowPDZK .btn').fadeIn(500);
+                $('#WindowPDZK .btn').fadeIn(400);
             });
             $('body').css('overflow', 'hide');     
         });

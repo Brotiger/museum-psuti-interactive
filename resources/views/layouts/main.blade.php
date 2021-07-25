@@ -52,6 +52,9 @@
             <button class="btn-home wow bounceInUp object-non-visible" onclick="location.href='/'" id="homeBtn">
                 <i class="fas fa-home"></i>
             </button>
+            <button class="btn-top wow bounceInUp object-non-visible" onclick="location.href='#top'">
+                <i class="fas fa-arrow-up"></i>
+            </button>
             @endif
         </div>
         <footer class="text-center">

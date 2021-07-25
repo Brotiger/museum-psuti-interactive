@@ -1,8 +1,10 @@
 @if(count($employees))
     <ul>
-        @foreach($employees as $employee)
+        @foreach($employees as $index => $employee)
             <li>{{ $employee->lastName }} {{ $employee->firstName }} {{ $employee->secondName }}</li>
-            <hr>
+            @if($index != count($employees) - 1)
+                <hr>
+            @endif
         @endforeach
         @if(count($employees) >= 7)
             <li class="text-center">. . .</li>

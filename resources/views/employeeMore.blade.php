@@ -3,12 +3,12 @@
 Сотрудник - {{ (!empty($employee)? $employee->lastName : '') . " " . (!empty($employee)? $employee->firstName : '')}}
 @endsection
 @section('content')
-    <div class="container-fuild info-page">
+    <div class="container-fuild info-page employee">
                 <div class="row mb-3">
                     <div class="col-4 left-info wow slideInLeft object-non-visible">
                         <div class="row">
                             <div class="col-12">
-                                <div class="block-container">
+                                <div class="block-container main-photo">
                                     <img {{ $employee->img? 'fullscreen' : '' }} src="{{ $employee->img? $storageServer . $employee->img : '/images/no-profile.png'}}" class="personal-photo">
                                 </div>
                                 @if(count($employee->titles))

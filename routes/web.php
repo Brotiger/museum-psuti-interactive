@@ -51,3 +51,7 @@ Route::get('/museum_3d', function(){
 })->name('museum_3d');
 
 Route::get('/page/{alias}', [PageController::class, "index"])->name('page');
+
+Route::get('/rectors', function(){
+    return view("rectors");
+})->name('rectors');
