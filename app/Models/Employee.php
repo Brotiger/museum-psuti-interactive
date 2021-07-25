@@ -9,8 +9,6 @@ class Employee extends Model
 {
     use HasFactory;
 
-   // protected $connection = 'mysql';
-
     public function educations(){
         return $this->hasMany('App\Models\Education');
     }

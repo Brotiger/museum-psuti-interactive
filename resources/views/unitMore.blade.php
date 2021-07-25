@@ -18,7 +18,7 @@
                                     @if($unit->creationDate || $unit->terminationDate)
                                         <div class="mt-4">
                                         @if($unit->creationDate)
-                                            <div class="form-group my-3 row">
+                                            <div class="form-group row">
                                                 <label for="dateBirthday" class="col-6 col-form-label">Дата создания</label>
                                                 <div class="col-6 date">
                                                     <span id="dateBirthday">{{ $unit->creationDate }}</span>
@@ -26,7 +26,7 @@
                                             </div>
                                         @endif
                                         @if($unit->terminationDate)
-                                            <div class="form-group my-3 row">
+                                            <div class="form-group row">
                                                 <label for="hired" class="col-6 col-form-label">Дата прекращения</label>
                                                 <div class="col-6 date">
                                                     <span id="hired">{{ $unit->terminationDate }}</span>

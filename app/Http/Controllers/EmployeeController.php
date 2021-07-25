@@ -68,9 +68,11 @@ class EmployeeController extends Controller
         return view('employeeMore', $params);
     }
 
-    public function employees_list(Request $request, $name){
+    public function employees_list(Request $request, $name, $post = null){
 
         $titleName = '';
+        $role = "сотрудников";
+
         if($name == "pguty"){
             DB::setDefaultConnection('pguty');
             $titleName = "ПГУТИ";
@@ -82,6 +84,8 @@ class EmployeeController extends Controller
         }
 
         $filter = [];
+        $postFilter = [];
+
         $next_query = [
             'lastName' => '',
             'firstName' => '',
@@ -102,21 +106,41 @@ class EmployeeController extends Controller
             $filter[] = ["secondName", "like", '%' . $request->input("secondName") . '%'];
             $next_query['secondName'] = $request->input("secondName");
         }
-        if($request->input("firedFrom") != null){
-            $filter[] = ["fired", ">=", $request->input("firedFrom")];
-            $next_query['firedFrom'] = $request->input("firedFrom");
+        if($request->input("hiredFrom") != null){
+            $filter[] = ["hired", ">=", $request->input("hiredFrom")];
+            $next_query['hiredFrom'] = $request->input("hiredFrom");
         }
-        if($request->input("firedTo") != null){
-            $filter[] = ["fired", "<=", $request->input("firedTo")];
-            $next_query['firedTo'] = $request->input("firedTo");
+        if($request->input("hiredTo") != null){
+            $filter[] = ["hired", "<=", $request->input("hiredTo")];
+            $next_query['hiredTo'] = $request->input("hiredTo");
         }
 
-        $employees = Employee::where($filter)->orderBy("lastName")->paginate(17);
+        if($post){
+            $postFilter[] = ['post', "like", $post . '%'];
+
+            $employees = Employee::where($filter)->with('units')->whereHas('units', function($q) use ($postFilter){
+                $q->where($postFilter);
+            })->orderBy("lastName")->paginate(17);
+
+            if($post == "Декан"){
+                $role = "деканов";
+            }else if ($post == "Проректор"){
+                $role = "проректоров";
+            }else if ($post == "Заведующий кафедры"){
+                $role = "заведующих кафедрами";
+            }
+
+        }else{
+            $employees = Employee::where($filter)->orderBy("lastName")->paginate(17);
+        }
 
         return view('employeesList', [
             'employees' => $employees,
             'next_query' => $next_query,
-            'name' => $titleName
+            'titleName' => $titleName,
+            'name' => $name,
+            'role' => $role,
+            'moreType' => 'employee_more'
         ]);
     }
 }

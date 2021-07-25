@@ -30,18 +30,18 @@ Route::get('/no_information', function(){
 })->name('no_information');
 
 Route::prefix('/employees/{name}')->group(function(){
-    Route::get('', [EmployeeController::class, "employees_list"])->name('employees_list');
-    Route::get('/more/{id}', [EmployeeController::class, "employee_more"])->name('employee_more');
+    Route::get('/{post?}', [EmployeeController::class, "employees_list"])->name('employees_list');
+    Route::get('/more/{id?}', [EmployeeController::class, "employee_more"])->name('employee_more');
 });
 
 Route::prefix('/units/{name}')->group(function(){
     Route::get('', [UnitController::class, "units_list"])->name('units_list');
-    Route::get('/more/{id}', [UnitController::class, 'unit_more'])->name('unit_more');
+    Route::get('/more/{id?}', [UnitController::class, 'unit_more'])->name('unit_more');
 });
 
 Route::prefix('/events/{name}')->group(function(){
     Route::get('', [EventController::class, "events_list"])->name('events_list');
-    Route::get('/more/{id}', [EventController::class, 'event_more'])->name('event_more');
+    Route::get('/more/{id?}', [EventController::class, 'event_more'])->name('event_more');
 });
 
 Route::get('/time_line/{name}', [TimeLineController::class, "index"])->name('time_line');

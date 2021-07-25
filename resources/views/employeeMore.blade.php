@@ -90,9 +90,9 @@
                         <div class="block-container personal-info wow slideInDown object-non-visible">
                             <h1 class="mb-0">{{ $employee->lastName . ' ' . $employee->firstName . ' ' .$employee->secondName }}</h1>
                             @if($employee->dateBirthday || $employee->hired || $employee->fired)
-                                <div class="my-4">
+                                <div class="mt-4">
                                 @if($employee->dateBirthday)
-                                    <div class="form-group my-3 row">
+                                    <div class="form-group row">
                                         <label for="dateBirthday" class="col-6 col-form-label">Дата рождения</label>
                                         <div class="col-6 date">
                                             <span id="dateBirthday">{{ $employee->dateBirthday }}</span>
@@ -100,7 +100,7 @@
                                     </div>
                                 @endif
                                 @if($employee->hired)
-                                    <div class="form-group my-3 row">
+                                    <div class="form-group row">
                                         <label for="hired" class="col-6 col-form-label">Дата приема</label>
                                         <div class="col-6 date">
                                             <span id="hired">{{ $employee->hired }}</span>
@@ -108,7 +108,7 @@
                                     </div>
                                 @endif
                                 @if($employee->fired)
-                                    <div class="form-group my-3 row">
+                                    <div class="form-group row">
                                         <label for="fired" class="col-6 col-form-label">Дата увольнения</label>
                                         <div class="col-6 date">
                                             <span id="fired">{{ $employee->fired }}</span>

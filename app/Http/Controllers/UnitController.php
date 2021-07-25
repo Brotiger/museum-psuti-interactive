@@ -95,7 +95,9 @@ class UnitController extends Controller
         return view('unitsList', [
             'units' => $units,
             'next_query' => $next_query,
-            'name' => $titleName
+            'titleName' => $titleName,
+            'name' => $name,
+            'moreType' => 'unit_more'
         ]);
     }
 }

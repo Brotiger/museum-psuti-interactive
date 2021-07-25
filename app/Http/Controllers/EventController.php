@@ -86,7 +86,9 @@ class EventController extends Controller
         return view('eventsList', [
             'events' => $events,
             'next_query' => $next_query,
-            'name' => $titleName
+            'titleName' => $titleName,
+            'name' => $name,
+            'moreType' => 'event_more'
         ]);
     }
 }

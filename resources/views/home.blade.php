@@ -1,6 +1,20 @@
 @extends('layouts.main')
 @section('title', 'Главная')
 @section('content')
+<div class="PDZK" id="WindowPDZK" style="display: none">
+    <button class="close-PDZK" id="close-PDZK"><i class="fas fa-times"></i></button>
+    <div class="row buttons">
+        <div class="col">
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Проректор']) }}" style="display: none">Проректоры</a>
+        </div>
+        <div class="col">
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Декан']) }}" style="display: none">Деканы</a>
+        </div>
+        <div class="col">
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Заведующий кафедры']) }}" style="display: none">Зав. кафедры</a>
+        </div>
+    </div>
+</div>
 <div class="menuContainer">
     <div class="container-fluid menu wow fadeIn object-non-visible">
         <div class="row row-1">
@@ -20,7 +34,7 @@
                 <a class="btn" href="{{ route('no_information') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['alias' => 'PDZK']) }}">Проректоры,<br>деканы,<br>зав. кафедры</a>
+                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры</a>
             </div>
         </div>
         <div class="row row-2">
@@ -65,4 +79,19 @@
         </div>
     </div>
 <div>
+@endsection
+@section('custom_js')
+    <script>
+        $("#PDZK").click(function(){
+            $(".cover, #WindowPDZK").show(0, function(){
+                $('#WindowPDZK .btn').fadeIn(500);
+            });
+            $('body').css('overflow', 'hide');     
+        });
+
+        $("#close-PDZK").click(function(){
+            $("#WindowPDZK, .cover, #WindowPDZK .btn").hide();
+            $('body').css('overflow', 'auto');
+        });
+    </script>
 @endsection
