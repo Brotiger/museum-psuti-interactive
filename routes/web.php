@@ -50,4 +50,4 @@ Route::get('/museum_3d', function(){
     return view("museum3D");
 })->name('museum_3d');
 
-Route::get('/page/{id}', [PageController::class, "index"])->name('page');
+Route::get('/page/{alias}', [PageController::class, "index"])->name('page');

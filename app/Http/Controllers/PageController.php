@@ -10,10 +10,10 @@ use YoutubeApiService;
 
 class PageController extends Controller
 {
-    public function index(Request $request, $id){
+    public function index(Request $request, $alias){
         DB::setDefaultConnection('pguty');
 
-        $page = Page::where('id', $id)->first();
+        $page = Page::where('alias', $alias)->first();
 
         foreach($page->videos as $index => $video){
             $snippet = YoutubeApiService::getSnippet($video->video);

@@ -11,16 +11,16 @@
                 <a class="btn" href="{{ route('time_line', ['name' => 'ks']) }}">КС ПГУТИ</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 1]) }}">Филиалы</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'branches']) }}">Филиалы</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 2]) }}">СРТТЦ</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'SRTTTS']) }}">СРТТЦ</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('no_information') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 3]) }}">Проректоры,<br>деканы,<br>зав. кафедры</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'PDZK']) }}">Проректоры,<br>деканы,<br>зав. кафедры</a>
             </div>
         </div>
         <div class="row row-2">
@@ -37,10 +37,10 @@
                 <a class="btn" href="{{ route('graduates_list', ['name' => 'ks']) }}">Выпускники<br>(КС ПГУТИ)</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 4]) }}">Научная деятельность</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'ScientificActivity']) }}">Научная деятельность</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 5]) }}">Материально техническая база</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'MaterialAndTechnicalBase']) }}">Материально техническая база</a>
             </div>
         </div>
         <div class="row row-3">
@@ -57,10 +57,10 @@
                 <a class="btn" href="{{ route('no_information') }}">Подвиги связистов (1941-1945)</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 6]) }}">Академия<br>АТИ</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'ATIAcademy']) }}">Академия<br>АТИ</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['id' => 7]) }}">Ассоциация<br>"Телеинфо"</a>
+                <a class="btn" href="{{ route('page', ['alias' => 'Teleinfo']) }}">Ассоциация<br>"Телеинфо"</a>
             </div>
         </div>
     </div>
