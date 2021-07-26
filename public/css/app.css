@@ -597,3 +597,38 @@ nav li {
 .rectors-page .row:nth-child(odd) .col-8 {
   padding-right: 0.5vw;
 }
+
+.feats-page {
+  padding-top: 4vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 4vw;
+}
+.feats-page ul {
+  padding-left: 2vw;
+}
+.feats-page .row:not(:first-child) {
+  margin-top: 1vw;
+}
+.feats-page .row:nth-child(even) .col-4 {
+  padding-right: 0.5vw;
+}
+.feats-page .row:nth-child(even) .col-8 {
+  padding-left: 0.5vw;
+}
+.feats-page .row:nth-child(odd) .col-4 {
+  padding-left: 0.5vw;
+}
+.feats-page .row:nth-child(odd) .col-8 {
+  padding-right: 0.5vw;
+}
+.feats-page .rewards {
+  display: flex;
+  align-items: center;
+}
+.feats-page .rewards .reward {
+  margin-left: 1vw;
+}
+.feats-page .rewards .reward:first-child {
+  margin-left: 0vw;
+}

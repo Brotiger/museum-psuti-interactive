@@ -55,3 +55,7 @@ Route::get('/page/{alias}', [PageController::class, "index"])->name('page');
 Route::get('/rectors', function(){
     return view("rectors");
 })->name('rectors');
+
+/*Route::get('/feats', function(){
+    return view("feats");
+})->name('feats');*/

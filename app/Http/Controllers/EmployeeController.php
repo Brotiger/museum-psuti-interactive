@@ -72,6 +72,7 @@ class EmployeeController extends Controller
 
         $titleName = '';
         $role = "сотрудников";
+        $postfix = "";
 
         if($name == "pguty"){
             DB::setDefaultConnection('pguty');
@@ -116,18 +117,24 @@ class EmployeeController extends Controller
         }
 
         if($post){
-            $postFilter[] = ['post', "like", $post . '%'];
+            if($post != "Участник ВОВ"){
+                $postFilter[] = ['post', "like", $post . '%'];
 
-            $employees = Employee::where($filter)->with('units')->whereHas('units', function($q) use ($postFilter){
-                $q->where($postFilter);
-            })->orderBy("lastName")->paginate(17);
+                $employees = Employee::where($filter)->with('units')->whereHas('units', function($q) use ($postFilter){
+                    $q->where($postFilter);
+                })->orderBy("lastName")->paginate(17);
 
-            if($post == "Декан"){
-                $role = "деканов";
-            }else if ($post == "Проректор"){
-                $role = "проректоров";
-            }else if ($post == "Заведующий кафедры"){
-                $role = "заведующих кафедрами";
+                if($post == "Декан"){
+                    $role = "деканов";
+                }else if ($post == "Проректор"){
+                    $role = "проректоров";
+                }else if ($post == "Заведующий кафедры"){
+                    $role = "заведующих кафедрами";
+                }
+            }else{
+                $filter[] = ['wwii', 1];
+                $postfix = "являющихся участниками ВОО";
+                $employees = Employee::where($filter)->orderBy("lastName")->paginate(17);
             }
 
         }else{
@@ -140,7 +147,8 @@ class EmployeeController extends Controller
             'titleName' => $titleName,
             'name' => $name,
             'role' => $role,
-            'moreType' => 'employee_more'
+            'moreType' => 'employee_more',
+            'postfix' =>  $postfix
         ]);
     }
 }

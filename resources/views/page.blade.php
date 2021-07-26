@@ -83,9 +83,9 @@
                             <div class="block">
                                 <h2 class="mb-0 h1">Главная</h2>
                             </div>
-                            <div class="block-info">
-                                @if(count($page->posts))
-                                    @foreach($page->posts as $index => $post)
+                            @if(count($page->posts))
+                                @foreach($page->posts as $index => $post)
+                                    <div class="block-info">
                                         @if($post->title)
                                             <h2>{{ $post->title }}</h2>
                                             <hr>
@@ -98,12 +98,14 @@
                                             </div>
                                         </div>
                                         @endif
-                                    @endforeach
-                                @else
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="block-info">
                                     <p class="text-center">Ничего не найдено</p>
                                     <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
-                                @endif
-                            </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="tabcontent wow slideInDown object-non-visible" ell="photoArchive" style="display: none">
                             <div class="block">

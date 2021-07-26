@@ -6,7 +6,7 @@
     <div class="container-fluid px-0">
         <div class="pt-4 dbList">
             <div class="mb-3 text-center">
-                <h1>Список {{ $role }} {{ $titleName }}</h1>
+                <h1>Список {{ $role }} {{ $titleName }} {{ $postfix }}</h1>
                 <span>Для того что бы просмотреть подробную информацию о сотруднике нажмите на него</span>
             </div>
             <table class="table table-striped">

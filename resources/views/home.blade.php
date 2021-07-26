@@ -68,7 +68,7 @@
                 <a class="btn" href="{{ route('museum_3d') }}">Виртуальная экскурсия (Музей имени Попова)</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('no_information') }}">Подвиги связистов (1941-1945)</a>
+                <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Участник ВОВ']) }}">Подвиги связистов (1941-1945)</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('page', ['alias' => 'ATIAcademy']) }}">Академия<br>АТИ</a>

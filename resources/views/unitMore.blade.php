@@ -58,7 +58,7 @@
                         @endif
                         @if(count($unit->photos))
                             @foreach($unit->photos as $index => $photo)
-                                <div class="block-container {{ $index == 0? 'block' : 'block-info' }} photo-block">
+                                <div class="block-container {{ $unit->description || $index != 0? 'block-info' : 'block' }} photo-block">
                                     @if($photo->photoName)
                                         <h3 class="mb-4">{{ $photo->photoName }}</h3>
                                     @endif
