@@ -27,9 +27,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 right-info wow slideInRight object-non-visible">
+                    <div class="col-8 right-info">
                         @if($event->description)
-                            <div class="block-container personal-info">
+                            <div class="block-container personal-info wow slideInRight object-non-visible">
                                 <h2 class="mb-4">Описание</h2>
                                 <div class="form-group row">
                                     <div class="col-12 description_block">
@@ -40,7 +40,7 @@
                         @endif
                         @if(count($event->photos))
                             @foreach($event->photos as $index => $photo)
-                                <div class="block-container {{ $index == 0? 'block' : 'block-info' }} photo-block">
+                                <div class="block-container {{ $index == 0? 'block' : 'block-info' }} photo-block wow slideInRight object-non-visible">
                                     @if($photo->photoName)
                                         <h3 class="mb-4">{{ $photo->photoName }}</h3>
                                     @endif
@@ -56,7 +56,7 @@
                         @endif
                         @if(count($event->videos))
                             @foreach($event->videos as $index => $video)
-                                <div class="block-container {{ count($event->photos) == 0 && $index == 0? 'block' : 'block-info' }} video-block">
+                                <div class="block-container {{ count($event->photos) == 0 && $index == 0? 'block' : 'block-info' }} video-block wow slideInRight object-non-visible">
                                     @if($video->videoName)
                                         <h3 class="mb-4">{{ $video->videoName }}</h3>
                                     @endif
