@@ -388,7 +388,7 @@ img.personal-photo {
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   bottom: 3.5vw;
   left: 50%;
   transform: translateX(-50%);
