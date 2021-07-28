@@ -28,7 +28,8 @@
                             <td>{{ $graduate->lastName }}</td>
                             <td>{{ $graduate->firstName }}</td>
                             <td>{{ $graduate->secondName }}</td>
-                            <td colspan="4">{{ !empty($graduate->exitYear)? $graduate->exitYear : '' }}</td>
+                            <td>{{ !empty($graduate->exitYear)? $graduate->exitYear : '' }}</td>
+                            <td colspan="3">{{ $graduate->specialtyName }}</td>
                         </tr>
                     @endforeach
                 </tbody>
