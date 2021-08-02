@@ -35,7 +35,7 @@
             <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
             @endif
         </div>
-        {{ $events->appends($next_query)->links('vendor.pagination.bootstrap-4') }}
+        {{ $events->appends($next_query)->links('vendor.pagination.bootstrap-4-v2') }}
     </div>
 @endsection
 @section('custom_js')

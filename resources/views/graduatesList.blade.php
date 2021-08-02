@@ -40,6 +40,6 @@
             <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
             @endif
         </div>
-        {{ $graduates->appends($next_query)->links('vendor.pagination.bootstrap-4') }}
+        {{ $graduates->appends($next_query)->links('vendor.pagination.bootstrap-4-v2') }}
     </div>
 @endsection
