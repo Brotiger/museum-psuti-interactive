@@ -13,6 +13,10 @@ ul li {
   text-align: justify;
 }
 
+.left-info ul li {
+  text-align: left;
+}
+
 table {
   table-layout: fixed;
 }

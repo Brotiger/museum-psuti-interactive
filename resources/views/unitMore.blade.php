@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-8 right-info">
                         @if($unit->description)
-                            <div class="block-container personal-info">
+                            <div class="block-container personal-info wow slideInRight object-non-visible">
                                 <h2 class="mb-4 h1">Описание</h2>
                                 <div class="form-group row">
                                     <div class="col-12 description_block">
