@@ -11,7 +11,7 @@
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Декан']) }}" style="display: none">Деканы</a>
         </div>
         <div class="col">
-            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Заведующий кафедры']) }}" style="display: none">Зав. кафедры</a>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Заведующий кафедрой']) }}" style="display: none">Зав. кафедры</a>
         </div>
     </div>
 </div>
