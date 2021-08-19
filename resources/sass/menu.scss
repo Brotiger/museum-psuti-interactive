@@ -52,7 +52,7 @@
     padding-top: .5vw;
 }
 
-.close-PDZK{
+.close-modal{
     position: fixed;
     z-index: 9910;
     top: 1vw;
@@ -67,8 +67,8 @@
     }
 }
 
-.PDZK{
-    .buttons{
+.modal-btn-container{
+    &>div{
         z-index: 9915;
         position: absolute;
         top: 50%;

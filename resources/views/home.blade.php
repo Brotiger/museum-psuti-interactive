@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title', 'Главная')
 @section('content')
-<div class="PDZK" id="WindowPDZK" style="display: none">
-    <button class="close-PDZK" id="close-PDZK"><i class="fas fa-times"></i></button>
-    <div class="buttons">
+<div class="modal-btn-container" id="windowPDZK" style="display: none">
+    <button class="close-modal" close-modal><i class="fas fa-times"></i></button>
+    <div>
         <div>
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Проректор']) }}" style="display: none">Проректоры</a>
         </div>
@@ -18,6 +18,20 @@
         </div>
     </div>
 </div>
+<div class="modal-btn-container" id="windowBranches" style="display: none">
+    <button class="close-modal" close-modal><i class="fas fa-times"></i></button>
+    <div>
+        <div>
+            <a class="btn" href="{{ route('page', ['alias' => 'branchOrenburg']) }}" style="display: none">Филиал в<br>г. Оренбург</a>
+        </div>
+        <div>
+            <a class="btn" href="{{ route('page', ['alias' => 'branchKazan']) }}" style="display: none">Филиал в<br>г. Казань</a>
+        </div>
+        <div>
+            <a class="btn" href="{{ route('page', ['alias' => 'branchStavropol']) }}" style="display: none">Филиал в<br>г. Ставрополь</a>
+        </div>
+    </div>
+</div>
 <div class="menuContainer">
     <div class="container-fluid menu wow fadeIn object-non-visible">
         <div class="row row-1">
@@ -28,7 +42,7 @@
                 <a class="btn" href="{{ route('time_line', ['name' => 'ks']) }}">КС ПГУТИ</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('page', ['alias' => 'branches']) }}">Филиалы</a>
+                <a class="btn" href="#" id="branches">Филиалы</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('page', ['alias' => 'SRTTTS']) }}">СРТТЦ</a>
@@ -86,14 +100,23 @@
 @section('custom_js')
     <script>
         $("#PDZK").click(function(){
-            $(".cover, #WindowPDZK").show(0, function(){
-                $('#WindowPDZK .btn').fadeIn(400);
+            $(".cover, #windowPDZK").show(0, function(){
+                $('#windowPDZK .btn').fadeIn(400);
             });
             $('body').css('overflow', 'hide');     
         });
 
-        $("#close-PDZK").click(function(){
-            $("#WindowPDZK, .cover, #WindowPDZK .btn").hide();
+        $("#branches").click(function(){
+            $(".cover, #windowBranches").show(0, function(){
+                $('#windowBranches .btn').fadeIn(400);
+            });
+            $('body').css('overflow', 'hide');     
+        });
+
+        $("[close-modal]").click(function(){
+            $(this).parent().find('.btn').hide();
+            $(this).parent().hide();
+            $('.cover').hide();
             $('body').css('overflow', 'auto');
         });
     </script>
