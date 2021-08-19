@@ -167,9 +167,22 @@ input::-webkit-inner-spin-button {
   z-index: 9915;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  width: 100%;
   color: white;
+  display: flex;
+  justify-content: center;
+}
+.PDZK .buttons > div {
+  display: inline-block;
+  height: 23.3vh;
+  width: 23.3vh;
+  box-sizing: content-box;
+  padding: 1vw;
+  padding-left: 0;
+}
+.PDZK .buttons > div:first-child {
+  padding-left: 1vw;
 }
 .PDZK .buttons .btn {
   width: 100%;
@@ -186,16 +199,6 @@ input::-webkit-inner-spin-button {
 }
 .PDZK .buttons .btn:active {
   box-shadow: inset 0px 0px 13px 5px #475b81;
-}
-.PDZK .buttons .col {
-  box-sizing: content-box;
-  height: 23.3vh;
-  width: 23.3vh;
-  padding: 1vw;
-  padding-left: 0;
-}
-.PDZK .buttons .col:first-child {
-  padding-left: 1vw;
 }
 
 header {

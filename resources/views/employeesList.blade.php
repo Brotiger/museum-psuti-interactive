@@ -16,7 +16,9 @@
                             <th><input filter-field type="text" class="form-control" placeholder="Фамилия" name="lastName" autocomplete="off" value="{{ request()->input('lastName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Имя" name="firstName" autocomplete="off" value="{{ request()->input('firstName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Отчество" name="secondName" autocomplete="off" value="{{ request()->input('secondName') }}"></th>
-                            <th><input filter-field type="date" class="form-control" placeholder="Дата приема (С)" name="hiredFrom" value="{{ request()->input('hiredFrom') }}"></th><th><input type="date" class="form-control" placeholder="Дата приема (По)" filter-field name="hiredTo" value="{{ request()->input('hiredTo') }}"></th>
+                            @if($role == 'сотрудников')
+                                <th><input filter-field type="date" class="form-control" placeholder="Дата приема (С)" name="hiredFrom" value="{{ request()->input('hiredFrom') }}"></th><th><input type="date" class="form-control" placeholder="Дата приема (По)" filter-field name="hiredTo" value="{{ request()->input('hiredTo') }}"></th>
+                            @endif
                             <th width="150"><button class="form-control btn btn-danger" type="reset" id="resetButton"><i class="bi bi-arrow-counterclockwise"></i></button></th><th width="150"><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
                         </form>
                     </tr>
@@ -28,7 +30,10 @@
                             <td>{{ $employee->lastName }}</td>
                             <td>{{ $employee->firstName }}</td>
                             <td>{{ $employee->secondName }}</td>
-                            <td colspan="4">{{ !empty($employee->hired)? date('m-d-Y', strtotime($employee->hired)) : '' }}</td>
+                            @if($role == 'сотрудников')
+                                <td colspan="2">{{ !empty($employee->hired)? date('m-d-Y', strtotime($employee->hired)) : '' }}</td>
+                            @endif
+                            <td colspan="2"></td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -3,15 +3,18 @@
 @section('content')
 <div class="PDZK" id="WindowPDZK" style="display: none">
     <button class="close-PDZK" id="close-PDZK"><i class="fas fa-times"></i></button>
-    <div class="row buttons">
-        <div class="col">
+    <div class="buttons">
+        <div>
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Проректор']) }}" style="display: none">Проректоры</a>
         </div>
-        <div class="col">
+        <div>
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Декан']) }}" style="display: none">Деканы</a>
         </div>
-        <div class="col">
+        <div>
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Заведующий кафедрой']) }}" style="display: none">Зав. кафедры</a>
+        </div>
+        <div>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'ks', 'post' => 'Деректор']) }}" style="display: none">Деректора КС</a>
         </div>
     </div>
 </div>
@@ -34,7 +37,7 @@
                 <a class="btn" href="{{ route('rectors') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры</a>
+                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры<br>деректора кс</a>
             </div>
         </div>
         <div class="row row-2">

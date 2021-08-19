@@ -128,8 +128,10 @@ class EmployeeController extends Controller
                     $role = "деканов";
                 }else if ($post == "Проректор"){
                     $role = "проректоров";
-                }else if ($post == "Заведующий кафедры"){
+                }else if ($post == "Заведующий кафедрой"){
                     $role = "заведующих кафедрами";
+                }else if ($post == "Деректор"){
+                    $role = "деректоров";
                 }
             }else{
                 $filter[] = ['wwii', 1];
