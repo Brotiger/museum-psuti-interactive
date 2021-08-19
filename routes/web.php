@@ -56,6 +56,6 @@ Route::get('/rectors', function(){
     return view("rectors");
 })->name('rectors');
 
-/*Route::get('/feats', function(){
-    return view("feats");
-})->name('feats');*/
+Route::get('/heroes', function(){
+    return view("heroes");
+})->name('heroes');

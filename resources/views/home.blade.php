@@ -32,6 +32,17 @@
         </div>
     </div>
 </div>
+<div class="modal-btn-container" id="windowFeats" style="display: none">
+    <button class="close-modal" close-modal><i class="fas fa-times"></i></button>
+    <div>
+        <div>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Участник ВОВ']) }}" style="display: none">Сотрудники ПГУТИ являющиеся участники ВОВ</a>
+        </div>
+        <div>
+            <a class="btn" href="{{ route('heroes') }}" style="display: none">Связисты герои</a>
+        </div>
+    </div>
+</div>
 <div class="menuContainer">
     <div class="container-fluid menu wow fadeIn object-non-visible">
         <div class="row row-1">
@@ -85,7 +96,7 @@
                 <a class="btn" href="{{ route('museum_3d') }}">Виртуальная экскурсия (Музей имени Попова)</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Участник ВОВ']) }}">Подвиги связистов (1941-1945)</a>
+                <a class="btn" href="#" id="feats">Подвиги связистов (1941-1945)</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="{{ route('page', ['alias' => 'ATIAcademy']) }}">Академия<br>АТИ</a>
@@ -109,6 +120,13 @@
         $("#branches").click(function(){
             $(".cover, #windowBranches").show(0, function(){
                 $('#windowBranches .btn').fadeIn(400);
+            });
+            $('body').css('overflow', 'hide');     
+        });
+
+        $("#feats").click(function(){
+            $(".cover, #windowFeats").show(0, function(){
+                $('#windowFeats .btn').fadeIn(400);
             });
             $('body').css('overflow', 'hide');     
         });
