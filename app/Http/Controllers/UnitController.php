@@ -90,7 +90,7 @@ class UnitController extends Controller
             $next_query['creationDateTo'] = $request->input("creationDateTo");
         }
 
-        $units = Unit::where($filter)->orderBy("fullUnitName")->paginate(17);
+        $units = Unit::where($filter)->orderBy("fullUnitName")->paginate(18);
 
         return view('unitsList', [
             'units' => $units,

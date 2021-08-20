@@ -10,31 +10,27 @@
 <div class="container-fuild date-page">
     <div class="mb-3 text-center">
         <h1>{{ $titleName }}</h1>
-        <span>Для просмотра информации выбирите диапазон дат</span>
     </div>
     <hr>
-    <div class="owl-carousel owl-theme" id="year-from">
+    <div class="owl-carousel owl-theme" id="year">
         @for($i = 1957; $i <= date('Y'); $i++)
-            <div class="item text-center time-line-year {{ $i == 1957 ? 'active' : '' }}" year-from="{{ $i }}">{{ $i }}</div>
-        @endfor
-    </div>
-    <hr>
-    <div class="owl-carousel owl-theme" id="year-to">
-        @for($i = 1957; $i <= date('Y'); $i++)
-            <div class="item text-center time-line-year {{ $i == date('Y') ? 'active' : '' }}" year-to="{{ $i }}">{{ $i }}</div>
+            <div class="item text-center time-line-year {{ $i == 1957 ? 'active' : '' }}" year="{{ $i }}">{{ $i }}</div>
         @endfor
     </div>
     <hr>
     <div class="row mt-3">
         <div class="col-4 mt-2">
             <hr>
-            <div class="owl-carousel owl-theme" id="month-from">
-                @for($i = 1; $i <= 12; $i++)
-                    <div class="item text-center time-line-month {{ $i == 1 ? 'active' : '' }}" month-from="{{ $i }}">{{ $i }}</div>
-                @endfor
+            <div class="month-container">
+                <div class="owl-carousel owl-theme" id="month-from">
+                    @for($i = 1; $i <= 12; $i++)
+                        <div class="item text-center time-line-month {{ $i == 1 ? 'active default' : '' }}" month-from="{{ $i }}">{{ $i }}</div>
+                    @endfor
+                </div>
+                <div class="disabled-select" style='display: {{ $month ? 'none' : 'flex' }}'>Выбор месяца не доступен</div>
             </div>
             <hr>
-            <div class="wow slideInLeft object-non-visible">
+            <div class="wow slideInLeft object-non-visible" id="unitMore">
                 <div class="block mt-4">
                     <h2 class='text-center'>Cформированные подразделения</h2>
                 </div>
@@ -47,11 +43,7 @@
                                     <hr>
                                 @endif
                             @endforeach
-                            @if(count($units) >= 7)
-                                <li class="text-center">. . .</li>
-                            @endif
                         </ul>
-                    <input type="button" value="Подробнее" id="unitMore">
                     @else
                         <p class="text-center">Ничего не найдено</p>
                         <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
@@ -63,10 +55,10 @@
             <div>
                 <hr>
                 <div class="select-date mt-2 text-center" id="select-date">
-                    1957-01-01 | {{ date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")) }}
+                    1957-01-01 | 1957-12-31
                 </div>
                 <hr>
-                <div class="wow bounceInUp object-non-visible">
+                <div class="wow bounceInUp object-non-visible" id="employeeMore">
                     <div class="block mt-4">
                         <h2 class='text-center'>Пришедшие сотрудники</h2>
                     </div>
@@ -79,11 +71,7 @@
                                         <hr>
                                     @endif
                                 @endforeach
-                                @if(count($employees) >= 7)
-                                    <li class="text-center">. . .</li>
-                                @endif
                             </ul>
-                        <input type="button" value="Подробнее" id="employeeMore">
                         @else
                             <p class="text-center">Ничего не найдено</p>
                             <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
@@ -94,13 +82,16 @@
         </div>
         <div class="col-4 mt-2">
             <hr>
-            <div class="owl-carousel owl-theme" id="month-to">
-                @for($i = 1; $i <= 12; $i++)
-                    <div class="item text-center time-line-month {{ $i == 12 ? 'active' : '' }}" month-to="{{ $i }}">{{ $i }}</div>
-                @endfor
+            <div class="month-container">
+                <div class="owl-carousel owl-theme" id="month-to">
+                    @for($i = 1; $i <= 12; $i++)
+                        <div class="item text-center time-line-month {{ $i == 12 ? 'active default' : '' }}" month-to="{{ $i }}">{{ $i }}</div>
+                    @endfor
+                </div>
+                <div class="disabled-select" style='display: {{ $month ? 'none' : 'flex' }}'>Выбор месяца не доступен</div>
             </div>
             <hr>
-            <div class="wow slideInRight object-non-visible">
+            <div class="wow slideInRight object-non-visible" id="eventMore">
                 <div class="block mt-4">
                     <h2 class='text-center'>Прошедшие события</h2>
                 </div>
@@ -113,11 +104,7 @@
                                     <hr>
                                 @endif
                             @endforeach
-                            @if(count($events) >= 7)
-                                <li class="text-center">. . .</li>
-                            @endif
                         </ul>
-                    <input type="button" value="Подробнее" id="eventMore">
                     @else
                         <p class="text-center">Ничего не найдено</p>
                         <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
@@ -131,38 +118,72 @@
 @section('custom_js')
 <script src="/js/owl.carousel.min.js"></script>
     <script>
-        var changeYearFrom = true;
-        var changeYearTo = true;
+        var changeYear = true;
         var changeMonthFrom = true;
         var changeMonthTo = true;
 
-        var yearFrom = '1957';
-        var yearTo = String(@php echo date('Y') @endphp);
+        var year = '1957';
 
         var monthFrom = '01';
-        var monthTo = String(@php echo date('m') @endphp);
+        var monthTo = '12';
 
-        var dateFrom = yearFrom + '-' + monthFrom + '-01';
-        var dateTo = yearTo + '-' + monthTo + '-' + daysInMonth(monthTo, yearTo);
+        var dateFrom = year + '-' + monthFrom + '-01';
+        var dateTo = year + '-' + monthTo + '-' + daysInMonth(monthTo, year);
 
-        $('#year-from').delegate('[year-from]', 'click', function(){
-            if(changeYearFrom){
-                $('[year-from]').each(function(){
-                    $(this).removeClass('active');
-                });
-                $(this).addClass('active');
-                yearFrom = $(this).attr('year-from');
-                search();
-            }
+        var monthFromOwl = $('#month-from').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: false,
+            dots: false,
+            items: 8,
+        }).on('drag.owl.carousel', function(){
+            changeMonthFrom = false;
+        }).on('dragged.owl.carousel', function(){
+            setTimeout(() => {
+                changeMonthFrom = true;
+            }, 1);
         });
 
-        $('#year-to').delegate('[year-to]', 'click', function(){
-            if(changeYearTo){
-                $('[year-to]').each(function(){
+        var monthToOwl = $('#month-to').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: false,
+            dots: false,
+            items: 8,
+            startPosition: 12 - 8
+        }).on('drag.owl.carousel', function(){
+            changeMonthTo = false;
+        }).on('dragged.owl.carousel', function(){
+            setTimeout(() => {
+                changeMonthTo = true;
+            }, 1);
+        });
+
+        $('#year').delegate('[year]', 'click', function(){
+            if(changeYear){
+                $('[year]').each(function(){
                     $(this).removeClass('active');
                 });
                 $(this).addClass('active');
-                yearTo = $(this).attr('year-to');
+                year = $(this).attr('year');
+
+                monthFromOwl.trigger('to.owl.carousel', 0);
+                monthToOwl.trigger('to.owl.carousel', 12 - 8);
+
+                $('[month-to]').each(function(){
+                    $(this).removeClass('active');
+                })
+
+                $('[month-from]').each(function(){
+                    $(this).removeClass('active');
+                })
+
+                $('#month-to .default').addClass('active');
+                $('#month-from .default').addClass('active');
+
+                monthTo = 12;
+                monthFrom = 1;
+
                 search();
             }
         });
@@ -191,61 +212,17 @@
 
         var yearItems = 14;
 
-        $('#year-from').owlCarousel({
+        $('#year').owlCarousel({
             loop: true,
             margin: 20,
             nav: false,
             dots: false,
             items: yearItems
         }).on('drag.owl.carousel', function(){
-            changeYearFrom = false;
+            changeYear = false;
         }).on('dragged.owl.carousel', function(){
             setTimeout(() => {
-                changeYearFrom = true;
-            }, 1);
-        });
-
-        $('#year-to').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: false,
-            dots: false,
-            items: yearItems,
-            startPosition: {{ date('Y') - 1957 + 1 }} - yearItems,
-        }).on('drag.owl.carousel', function(){
-            changeYearTo = false;
-        }).on('dragged.owl.carousel', function(){
-            setTimeout(() => {
-                changeYearTo = true;
-            }, 1);
-        });
-
-        $('#month-from').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: false,
-            dots: false,
-            items: 8,
-        }).on('drag.owl.carousel', function(){
-            changeMonthFrom = false;
-        }).on('dragged.owl.carousel', function(){
-            setTimeout(() => {
-                changeMonthFrom = true;
-            }, 1);
-        });
-
-        $('#month-to').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: false,
-            dots: false,
-            items: 8,
-            startPosition: 12 - 8
-        }).on('drag.owl.carousel', function(){
-            changeMonthTo = false;
-        }).on('dragged.owl.carousel', function(){
-            setTimeout(() => {
-                changeMonthTo = true;
+                changeYear = true;
             }, 1);
         });
 
@@ -285,8 +262,8 @@
                 monthTo = "0" + monthTo;
             }
             
-            dateFrom = yearFrom + '-' + monthFrom + '-01';
-            dateTo = yearTo + '-' + monthTo + '-' + daysInMonth(monthTo, yearTo);
+            dateFrom = year + '-' + monthFrom + '-01';
+            dateTo = year + '-' + monthTo + '-' + daysInMonth(monthTo, year);
 
             if(dateFrom <= dateTo){
                 $("#select-date").text(dateFrom + " | " + dateTo);
@@ -300,12 +277,19 @@
                 processData: true, //преобразовывать передаваемые данные в строку
                 data: {
                     'dateFrom': dateFrom,
-                    'dateTo': dateTo
+                    'dateTo': dateTo,
+                    'year': year
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(data){
+                    if(data.month){
+                        $('.month-container .disabled-select').hide();
+                    }else{
+                        $('.month-container .disabled-select').show();
+                    }
+                    
                     $('#employeeList').html(data.employees);
                     $('#eventList').html(data.events);
                     $('#unitList').html(data.units);

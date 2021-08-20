@@ -81,7 +81,7 @@ class EventController extends Controller
             $next_query['dateTo'] = $request->input("dateTo");
         }
 
-        $events = Event::where($filter)->orderBy("name")->paginate(17);
+        $events = Event::where($filter)->orderBy("name")->paginate(18);
 
         return view('eventsList', [
             'events' => $events,

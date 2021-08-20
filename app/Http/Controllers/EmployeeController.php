@@ -136,11 +136,11 @@ class EmployeeController extends Controller
             }else{
                 $filter[] = ['wwii', 1];
                 $postfix = "являющихся участниками ВОО";
-                $employees = Employee::where($filter)->orderBy("lastName")->paginate(17);
+                $employees = Employee::where($filter)->orderBy("lastName")->paginate(18);
             }
 
         }else{
-            $employees = Employee::where($filter)->orderBy("lastName")->paginate(17);
+            $employees = Employee::where($filter)->orderBy("lastName")->paginate(18);
         }
 
         return view('employeesList', [

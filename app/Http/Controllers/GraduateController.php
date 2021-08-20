@@ -58,7 +58,7 @@ class GraduateController extends Controller
             $next_query['exitYearTo'] = $request->input("exitYearTo");
         }
 
-        $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(17);
+        $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(18);
 
         return view('graduatesList', [
             'graduates' => $graduates,

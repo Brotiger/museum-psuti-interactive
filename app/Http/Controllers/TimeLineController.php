@@ -26,23 +26,31 @@ class TimeLineController extends Controller
 
         $filterEvent = [
             ["date", ">=", Carbon::parse("1957-01-01")],
-            ["date", "<=", Carbon::parse(date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")))]
+            ["date", "<=", Carbon::parse("1957-12-31")]
         ];
 
         $filterEmployee = [
             ["hired", ">=", Carbon::parse("1957-01-01")],
-            ["hired", "<=", Carbon::parse(date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")))]
+            ["hired", "<=", Carbon::parse("1957-12-31")]
         ];
 
         $filterUnit = [
             ["creationDate", ">=", Carbon::parse("1957-01-01")],
-            ["creationDate", "<=", Carbon::parse(date("Y-m") . "-" . cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y")))]
+            ["creationDate", "<=", Carbon::parse("1957-12-31")]
         ];
+
+        $filterYearEvent = $filterEvent;
+        $filterYearEmployee = $filterEmployee;
+        $filterYearUnit = $filterUnit;
 
         if($request->input('dateFrom') && $request->input('dateTo')){
             $filterUnit = [];
             $filterEmployee = [];
             $filterEvent = [];
+
+            $filterYearEvent = [];
+            $filterYearEmployee = [];
+            $filterYearUnit = [];
 
             if($request->input('dateFrom') <= $request->input('dateTo')){
                 $filterEvent[] = ["date", ">=", Carbon::parse($request->input('dateFrom'))];
@@ -63,14 +71,43 @@ class TimeLineController extends Controller
                 $filterEmployee[] = ["hired", "<=", Carbon::parse($request->input('dateFrom'))];
                 $filterEmployee[] = ["hired", ">=", Carbon::parse($request->input('dateTo'))];
             }
+
+            $daysInLastMonthYear = str_pad(cal_days_in_month(CAL_GREGORIAN, 12, $request->input('year')), 2, "0", STR_PAD_LEFT);
+            
+            $from = Carbon::parse($request->input('year') . '-01-01');
+            $to = Carbon::parse($request->input('year') . '-12-'. $daysInLastMonthYear);
+
+            $filterYearEvent[] = ["date", ">=", $from];
+            $filterYearEvent[] = ["date", "<=", $to];
+
+            $filterYearEmployee[] = ["hired", ">=", $from];
+            $filterYearEmployee[] = ["hired", "<=", $to];
+
+            $filterYearUnit[] = ["creationDate", ">=", $from];
+            $filterYearUnit[] = ["creationDate", "<=", $to];
         }
 
-        $events = Event::where($filterEvent)->orderBy('name')->limit(7)->get();
-        $employees = Employee::where($filterEmployee)->orderBy('lastName')->limit(7)->get();
-        $units = Unit::where($filterUnit)->orderBy('fullUnitName')->limit(7)->get();
+        $maxRecordCount = 10;
+
+        $events = Event::where($filterEvent)->orderBy('name')->limit($maxRecordCount)->get();
+        $employees = Employee::where($filterEmployee)->orderBy('lastName')->limit($maxRecordCount)->get();
+        $units = Unit::where($filterUnit)->orderBy('fullUnitName')->limit($maxRecordCount)->get();
+
+        $events_count = Event::where($filterYearEvent)->count();
+        $employees_count = Employee::where($filterYearEmployee)->count();
+        $units_count = Unit::where($filterYearUnit)->count();
+
+        $month = false;
+
+        if($events_count > $maxRecordCount || $employees_count > $maxRecordCount || $units_count > $maxRecordCount){
+            $month = true;
+        }
 
         if($request->ajax()){
+
             $response = [];
+
+            $response['month'] = $month;
 
             $response['events'] = view('ajax.events', [
                 'events' => $events
@@ -95,7 +132,8 @@ class TimeLineController extends Controller
             'events' => $events,
             'employees' => $employees,
             'units' => $units,
-            'storageServer' => $storageServer
+            'storageServer' => $storageServer,
+            'month' => $month
         ]);
     }
 }

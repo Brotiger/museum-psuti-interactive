@@ -294,7 +294,7 @@ button i {
 }
 
 .main-photo {
-  border: 1vw solid #546b96d3;
+  border: 1vw solid #566d99;
 }
 
 img {
@@ -308,7 +308,7 @@ img.personal-photo {
 
 .block-info {
   margin-top: 1vw;
-  background-color: #546b96d3;
+  background-color: #566d99;
   padding: 1vw;
 }
 
@@ -318,7 +318,7 @@ img.personal-photo {
 }
 
 .personal-info {
-  background-color: #546b96d3;
+  background-color: #566d99;
   padding: 1vw;
 }
 
@@ -334,15 +334,15 @@ img.personal-photo {
 }
 
 .block {
-  background-color: #546b96d3;
+  background-color: #566d99;
   padding: 1vw;
 }
 
 .time-line-year, .time-line-month, .select-date {
   font-size: 1.5vw;
-  background-color: #546b96d3;
+  background-color: #566d99;
   padding: 0.1vw, 0.1vw;
-  border: solid 0.1vw #546b96d3;
+  border: solid 0.1vw #566d99;
   transition: 0.15s ease all;
 }
 .time-line-year.active, .time-line-month.active, .select-date.active {
@@ -370,9 +370,24 @@ img.personal-photo {
   padding-left: 0.5vw;
 }
 
+.month-container {
+  position: relative;
+}
+.month-container .disabled-select {
+  z-index: 9999;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #566d99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .list {
   margin-top: 1vw;
-  height: 47.8vh;
+  height: 53.7vh;
   position: relative;
   white-space: nowrap;
 }
@@ -395,7 +410,7 @@ img.personal-photo {
   border: none;
   border-radius: 0.1vw;
   outline: none;
-  border: 0.1vw solid #546b96d3;
+  border: 0.1vw solid #566d99;
   transition: box-shadow 0.1s ease;
 }
 .list input:active {
@@ -519,7 +534,7 @@ nav li {
   border-radius: 0.1vw;
   outline: none;
   width: 100%;
-  border: 0.1vw solid #546b96d3;
+  border: 0.1vw solid #566d99;
   transition: box-shadow 0.1s ease;
   text-align: left;
 }
@@ -603,7 +618,7 @@ nav li {
   background: #617baa;
 }
 .rectors-page .card-block img {
-  border: 1vw solid #546b96d3;
+  border: 1vw solid #566d99;
   width: 100%;
   padding: 0.5vw;
 }
@@ -611,7 +626,7 @@ nav li {
   text-align: center;
   padding: 0.5vw;
   margin-top: 0.5vw;
-  background: #546b96d3;
+  background: #566d99;
 }
 .rectors-page .card-block .name h2 {
   font-size: 1.25vw;
