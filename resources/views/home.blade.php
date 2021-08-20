@@ -62,7 +62,7 @@
                 <a class="btn" href="{{ route('rectors') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры<br>деректора кс</a>
+                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры,<br>деректора кс</a>
             </div>
         </div>
         <div class="row row-2">

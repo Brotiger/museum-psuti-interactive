@@ -58,7 +58,7 @@
             @endif
         </div>
         <footer class="text-center">
-            <a href="#">© ПГУТИ & Brotiger @php echo date('Y') @endphp</a>
+            <a href="#">© ПГУТИ @php echo date('Y') @endphp</a>
         </footer>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

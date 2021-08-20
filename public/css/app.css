@@ -598,23 +598,26 @@ nav li {
   padding-right: 1vw;
   padding-bottom: 4vw;
 }
-.rectors-page ul {
-  padding-left: 2vw;
+.rectors-page .card-block {
+  cursor: pointer;
+  background: #617baa;
 }
-.rectors-page .row:not(:first-child) {
+.rectors-page .card-block img {
+  border: 1vw solid #546b96d3;
+  width: 100%;
+  padding: 0.5vw;
+}
+.rectors-page .card-block .name {
+  text-align: center;
+  padding: 0.5vw;
+  margin-top: 0.5vw;
+  background: #546b96d3;
+}
+.rectors-page .card-block .name h2 {
+  font-size: 1.25vw;
+}
+.rectors-page .row:not(:first-of-type) {
   margin-top: 1vw;
-}
-.rectors-page .row:nth-child(even) .col-4 {
-  padding-right: 0.5vw;
-}
-.rectors-page .row:nth-child(even) .col-8 {
-  padding-left: 0.5vw;
-}
-.rectors-page .row:nth-child(odd) .col-4 {
-  padding-left: 0.5vw;
-}
-.rectors-page .row:nth-child(odd) .col-8 {
-  padding-right: 0.5vw;
 }
 
 .feats-page {
