@@ -49,13 +49,13 @@ class GraduateController extends Controller
             $filter[] = ["secondName", "like", '%' . $request->input("secondName") . '%'];
             $next_query['secondName'] = $request->input("secondName");
         }
-        if($request->input("exitYearFrom") != null){
-            $filter[] = ["exitYear", ">=", $request->input("exitYearFrom")];
-            $next_query['exitYearFrom'] = $request->input("exitYearFrom");
+        if($request->input("exitYear") != null){
+            $filter[] = ["exitYear", "=", $request->input("exitYear")];
+            $next_query['exitYear'] = $request->input("exitYear");
         }
-        if($request->input("exitYearTo") != null){
-            $filter[] = ["exitYear", "<=", $request->input("exitYearTo")];
-            $next_query['exitYearTo'] = $request->input("exitYearTo");
+        if($request->input("specialtyName") != null){
+            $filter[] = ["specialtyName", "like", '%' . $request->input("specialtyName") . '%'];
+            $next_query['specialtyName'] = $request->input("specialtyName");
         }
 
         $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(18);

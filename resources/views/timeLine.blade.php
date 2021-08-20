@@ -43,6 +43,9 @@
                                     <hr>
                                 @endif
                             @endforeach
+                            @if(count($units) >= $maxRecordCount)
+                                <li class="mt-0 text-center">. . .</li>
+                            @endif
                         </ul>
                     @else
                         <p class="text-center">Ничего не найдено</p>
@@ -71,6 +74,9 @@
                                         <hr>
                                     @endif
                                 @endforeach
+                                @if(count($employees) >= $maxRecordCount)
+                                    <li class="mt-0 text-center">. . .</li>
+                                @endif
                             </ul>
                         @else
                             <p class="text-center">Ничего не найдено</p>
@@ -104,6 +110,9 @@
                                     <hr>
                                 @endif
                             @endforeach
+                            @if(count($events) >= $maxRecordCount)
+                                <li class="mt-0 text-center">. . .</li>
+                            @endif
                         </ul>
                     @else
                         <p class="text-center">Ничего не найдено</p>
@@ -227,26 +236,32 @@
         });
 
         $('.date-page').delegate("#employeeMore"," click", function(){
-            if(dateFrom <= dateTo){
-                window.location.href = "/employees/{{ $site }}?hiredFrom=" + dateFrom + "&hiredTo=" + dateTo;
-            }else{
-                window.location.href = "/employees/{{ $site }}?hiredFrom=" + dateTo + "&hiredTo=" + dateFrom;
+            if($(this).find('ul li').length > 0){ 
+                if(dateFrom <= dateTo){
+                    window.location.href = "/employees/{{ $site }}?hiredFrom=" + dateFrom + "&hiredTo=" + dateTo;
+                }else{
+                    window.location.href = "/employees/{{ $site }}?hiredFrom=" + dateTo + "&hiredTo=" + dateFrom;
+                }
             }
         });
 
         $('.date-page').delegate("#unitMore"," click", function(){
-            if(dateFrom <= dateTo){
-                window.location.href = "/units/{{ $site }}?creationDateFrom=" + dateFrom + "&creationDateTo=" + dateTo;
-            }else{
-                window.location.href = "/units/{{ $site }}?creationDateFrom=" + dateTo + "&creationDateTo=" + dateFrom;
+            if($(this).find('ul li').length > 0){
+                if(dateFrom <= dateTo){
+                    window.location.href = "/units/{{ $site }}?creationDateFrom=" + dateFrom + "&creationDateTo=" + dateTo;
+                }else{
+                    window.location.href = "/units/{{ $site }}?creationDateFrom=" + dateTo + "&creationDateTo=" + dateFrom;
+                }
             }
         });
 
         $('.date-page').delegate("#eventMore"," click", function(){
-            if(dateFrom <= dateTo){
-                window.location.href = "/events/{{ $site }}?dateFrom=" + dateFrom + "&dateTo=" + dateTo;
-            }else{
-                window.location.href = "/events/{{ $site }}?dateFrom=" + dateTo + "&dateTo=" + dateFrom;
+            if($(this).find('ul li').length > 0){ 
+                if(dateFrom <= dateTo){
+                    window.location.href = "/events/{{ $site }}?dateFrom=" + dateFrom + "&dateTo=" + dateTo;
+                }else{
+                    window.location.href = "/events/{{ $site }}?dateFrom=" + dateTo + "&dateTo=" + dateFrom;
+                }
             }
         });
 

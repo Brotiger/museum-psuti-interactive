@@ -110,15 +110,18 @@ class TimeLineController extends Controller
             $response['month'] = $month;
 
             $response['events'] = view('ajax.events', [
-                'events' => $events
+                'events' => $events,
+                'maxRecordCount' => $maxRecordCount
             ])->render();
 
             $response['employees'] = view('ajax.employees', [
-                'employees' => $employees
+                'employees' => $employees,
+                'maxRecordCount' => $maxRecordCount
             ])->render();
 
             $response['units'] = view('ajax.units', [
-                'units' => $units
+                'units' => $units,
+                'maxRecordCount' => $maxRecordCount
             ])->render();
 
             return $response;
@@ -133,7 +136,8 @@ class TimeLineController extends Controller
             'employees' => $employees,
             'units' => $units,
             'storageServer' => $storageServer,
-            'month' => $month
+            'month' => $month,
+            'maxRecordCount' => $maxRecordCount
         ]);
     }
 }

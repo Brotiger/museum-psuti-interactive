@@ -15,7 +15,8 @@
                             <th><input filter-field type="text" class="form-control" placeholder="Фамилия" name="lastName" autocomplete="off" value="{{ request()->input('lastName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Имя" name="firstName" autocomplete="off" value="{{ request()->input('firstName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Отчество" name="secondName" autocomplete="off" value="{{ request()->input('secondName') }}"></th>
-                            <th><input filter-field type="number" class="form-control" placeholder="Год окончания (С)" name="exitYearFrom" value="{{ request()->input('exitYearFrom') }}"></th><th><input type="number" class="form-control" placeholder="Год окончания (По)" filter-field name="exitYearTo" value="{{ request()->input('exitYearTo') }}"></th>
+                            <th><input type="number" class="form-control" placeholder="Год окончания" filter-field name="exitYear" value="{{ request()->input('exitYear') }}"></th>
+                            <th><input filter-field type="text" class="form-control" placeholder="Специальность" name="specialtyName" autocomplete="off" value="{{ request()->input('specialtyName') }}"></th>
                             <th width="150"><button class="form-control btn btn-danger" type="reset" id="resetButton"><i class="bi bi-arrow-counterclockwise"></i></button></th><th width="150"><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
                         </form>
                     </tr>
