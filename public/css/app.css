@@ -272,6 +272,27 @@ button i {
 .dbList td {
   cursor: pointer;
 }
+.dbList th [disabled] {
+  background: #566d99;
+  border-color: #566d99;
+  color: #fff;
+}
+.dbList th [disabled]::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #fff;
+}
+.dbList th [disabled]:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+}
+.dbList th [disabled]::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+}
+.dbList th [disabled]:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #fff;
+}
 
 .info-page {
   margin-top: 4vw;
@@ -368,6 +389,9 @@ img.personal-photo {
 }
 .date-page .col-4:last-child {
   padding-left: 0.5vw;
+}
+.date-page .year-container, .date-page .month-container, .date-page .block.list {
+  cursor: pointer;
 }
 
 .month-container {

@@ -16,7 +16,7 @@
                             <th><input filter-field type="text" class="form-control" placeholder="Имя" name="firstName" autocomplete="off" value="{{ request()->input('firstName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Отчество" name="secondName" autocomplete="off" value="{{ request()->input('secondName') }}"></th>
                             <th><input type="number" class="form-control" placeholder="Год окончания" filter-field name="exitYear" value="{{ request()->input('exitYear') }}"></th>
-                            <th><input filter-field type="text" class="form-control" placeholder="Специальность" name="specialtyName" autocomplete="off" value="{{ request()->input('specialtyName') }}"></th>
+                            <th><input type="text" class="form-control" placeholder="Специальность" disabled></th>
                             <th width="150"><button class="form-control btn btn-danger" type="reset" id="resetButton"><i class="bi bi-arrow-counterclockwise"></i></button></th><th width="150"><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
                         </form>
                     </tr>

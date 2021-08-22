@@ -12,25 +12,57 @@
         <h1>{{ $titleName }}</h1>
     </div>
     <hr>
-    <div class="owl-carousel owl-theme" id="year">
-        @for($i = 1957; $i <= date('Y'); $i++)
-            <div class="item text-center time-line-year {{ $i == 1957 ? 'active' : '' }}" year="{{ $i }}">{{ $i }}</div>
-        @endfor
+    <div class="year-container">
+        <div class="owl-carousel owl-theme" id="year">
+            @for($i = 1956; $i <= date('Y'); $i++)
+                <div class="item text-center time-line-year {{ $i == 1956 ? 'active' : '' }}" year="{{ $i }}">{{ $i }}</div>
+            @endfor
+        </div>
     </div>
     <hr>
     <div class="row mt-3">
         <div class="col-4 mt-2">
             <hr>
-            <div class="month-container">
-                <div class="owl-carousel owl-theme" id="month-from">
-                    @for($i = 1; $i <= 12; $i++)
-                        <div class="item text-center time-line-month {{ $i == 1 ? 'active default' : '' }}" month-from="{{ $i }}">{{ $i }}</div>
-                    @endfor
+                <div class="month-container">
+                    <div class="owl-carousel owl-theme" id="month-from">
+                        @for($i = 1; $i <= 12; $i++)
+                            <div class="item text-center time-line-month {{ $i == 1 ? 'active default' : '' }}" month-from="{{ $i }}">{{ $i }}</div>
+                        @endfor
+                    </div>
+                    <div class="disabled-select" style='display: {{ $month ? 'none' : 'flex' }}'>Выбор месяца не доступен</div>
                 </div>
-                <div class="disabled-select" style='display: {{ $month ? 'none' : 'flex' }}'>Выбор месяца не доступен</div>
+            <hr>
+            <div class="wow slideInLeft object-non-visible" id="eventMore">
+                <div class="block mt-4">
+                    <h2 class='text-center'>Прошедшие события</h2>
+                </div>
+                <div class="block list" id="eventList">
+                    @if(count($events))
+                        <ul>
+                            @foreach($events as $index => $event)
+                                <li>{{ $event->name }}</li>
+                                @if($index != count($events) - 1)
+                                    <hr>
+                                @endif
+                            @endforeach
+                            @if(count($events) >= $maxRecordCount)
+                                <li class="mt-0 text-center">. . .</li>
+                            @endif
+                        </ul>
+                    @else
+                        <p class="text-center">Ничего не найдено</p>
+                        <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-4 mt-2">
+            <hr>
+            <div class="select-date mt-2 text-center" id="select-date">
+                1956-01-01 | 1956-12-31
             </div>
             <hr>
-            <div class="wow slideInLeft object-non-visible" id="unitMore">
+            <div class="wow bounceInUp object-non-visible" id="unitMore">
                 <div class="block mt-4">
                     <h2 class='text-center'>Cформированные подразделения</h2>
                 </div>
@@ -55,13 +87,17 @@
             </div>
         </div>
         <div class="col-4 mt-2">
-            <div>
                 <hr>
-                <div class="select-date mt-2 text-center" id="select-date">
-                    1957-01-01 | 1957-12-31
-                </div>
+                    <div class="month-container">
+                        <div class="owl-carousel owl-theme" id="month-to">
+                            @for($i = 1; $i <= 12; $i++)
+                                <div class="item text-center time-line-month {{ $i == 12 ? 'active default' : '' }}" month-to="{{ $i }}">{{ $i }}</div>
+                            @endfor
+                        </div>
+                        <div class="disabled-select" style='display: {{ $month ? 'none' : 'flex' }}'>Выбор месяца не доступен</div>
+                    </div>
                 <hr>
-                <div class="wow bounceInUp object-non-visible" id="employeeMore">
+                <div class="wow slideInRight object-non-visible" id="employeeMore">
                     <div class="block mt-4">
                         <h2 class='text-center'>Пришедшие сотрудники</h2>
                     </div>
@@ -84,42 +120,6 @@
                         @endif
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-4 mt-2">
-            <hr>
-            <div class="month-container">
-                <div class="owl-carousel owl-theme" id="month-to">
-                    @for($i = 1; $i <= 12; $i++)
-                        <div class="item text-center time-line-month {{ $i == 12 ? 'active default' : '' }}" month-to="{{ $i }}">{{ $i }}</div>
-                    @endfor
-                </div>
-                <div class="disabled-select" style='display: {{ $month ? 'none' : 'flex' }}'>Выбор месяца не доступен</div>
-            </div>
-            <hr>
-            <div class="wow slideInRight object-non-visible" id="eventMore">
-                <div class="block mt-4">
-                    <h2 class='text-center'>Прошедшие события</h2>
-                </div>
-                <div class="block list" id="eventList">
-                    @if(count($events))
-                        <ul>
-                            @foreach($events as $index => $event)
-                                <li>{{ $event->name }}</li>
-                                @if($index != count($events) - 1)
-                                    <hr>
-                                @endif
-                            @endforeach
-                            @if(count($events) >= $maxRecordCount)
-                                <li class="mt-0 text-center">. . .</li>
-                            @endif
-                        </ul>
-                    @else
-                        <p class="text-center">Ничего не найдено</p>
-                        <p class="text-center mt-3"><i class="fab fa-whmcs"></i></p>
-                    @endif
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -131,7 +131,7 @@
         var changeMonthFrom = true;
         var changeMonthTo = true;
 
-        var year = '1957';
+        var year = '1956';
 
         var monthFrom = '01';
         var monthTo = '12';

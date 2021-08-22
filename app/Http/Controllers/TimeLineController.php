@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class TimeLineController extends Controller
 {
     public function index(Request $request, $name){
-        if($name == "pguty"){
+        if($name == "pguty" || $name == "psuti"){
             DB::setDefaultConnection('pguty');
             $titleName = "КЭИС ПИИРС ПГАТИ ПГУТИ";
             $site = "pguty";
@@ -25,18 +25,18 @@ class TimeLineController extends Controller
         }
 
         $filterEvent = [
-            ["date", ">=", Carbon::parse("1957-01-01")],
-            ["date", "<=", Carbon::parse("1957-12-31")]
+            ["date", ">=", Carbon::parse("1956-01-01")],
+            ["date", "<=", Carbon::parse("1956-12-31")]
         ];
 
         $filterEmployee = [
-            ["hired", ">=", Carbon::parse("1957-01-01")],
-            ["hired", "<=", Carbon::parse("1957-12-31")]
+            ["hired", ">=", Carbon::parse("1956-01-01")],
+            ["hired", "<=", Carbon::parse("1956-12-31")]
         ];
 
         $filterUnit = [
-            ["creationDate", ">=", Carbon::parse("1957-01-01")],
-            ["creationDate", "<=", Carbon::parse("1957-12-31")]
+            ["creationDate", ">=", Carbon::parse("1956-01-01")],
+            ["creationDate", "<=", Carbon::parse("1956-12-31")]
         ];
 
         $filterYearEvent = $filterEvent;

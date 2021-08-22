@@ -13,7 +13,7 @@ class UnitController extends Controller
     public function unit_more($name, $id = null){
         $storageServer = '';
 
-        if($name == "pguty"){
+        if($name == "pguty" || $name == "psuti"){
             DB::setDefaultConnection('pguty');
             $storageServer = env('PGUTY_STORAGE');
         }else if($name == "ks"){
@@ -50,7 +50,7 @@ class UnitController extends Controller
 
     public function units_list(Request $request, $name){
         $titleName = '';
-        if($name == "pguty"){
+        if($name == "pguty" || $name == "psuti"){
             DB::setDefaultConnection('pguty');
             $titleName = "ПГУТИ";
         }else if($name == "ks"){

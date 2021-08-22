@@ -18,7 +18,7 @@ class GraduateController extends Controller
 {
     public function graduates_list(Request $request, $name){
         $titleName = '';
-        if($name == "pguty"){
+        if($name == "pguty" || $name == "psuti"){
             DB::setDefaultConnection('pguty');
             $titleName = "ПГУТИ";
         }else if($name == "ks"){
@@ -33,8 +33,7 @@ class GraduateController extends Controller
             'lastName' => '',
             'firstName' => '',
             'secondName' => '',
-            'exitYearFrom' => '',
-            'exitYearTo' => '',
+            'exitYear' => '',
         ];
 
         if($request->input("lastName") != null){
@@ -52,10 +51,6 @@ class GraduateController extends Controller
         if($request->input("exitYear") != null){
             $filter[] = ["exitYear", "=", $request->input("exitYear")];
             $next_query['exitYear'] = $request->input("exitYear");
-        }
-        if($request->input("specialtyName") != null){
-            $filter[] = ["specialtyName", "like", '%' . $request->input("specialtyName") . '%'];
-            $next_query['specialtyName'] = $request->input("specialtyName");
         }
 
         $graduates = Graduate::where($filter)->orderBy("lastName")->paginate(18);

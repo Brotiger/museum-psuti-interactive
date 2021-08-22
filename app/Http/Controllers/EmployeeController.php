@@ -30,7 +30,7 @@ class EmployeeController extends Controller
     public function employee_more($name, $id = null){
         $storageServer = '';
 
-        if($name == "pguty"){
+        if($name == "pguty" || $name == "psuti"){
             DB::setDefaultConnection('pguty');
             $storageServer = env('PGUTY_STORAGE');
         }else if($name == "ks"){
@@ -74,7 +74,7 @@ class EmployeeController extends Controller
         $role = "сотрудников";
         $postfix = "";
 
-        if($name == "pguty"){
+        if($name == "pguty" || $name == "psuti"){
             DB::setDefaultConnection('pguty');
             $titleName = "ПГУТИ";
         }else if($name == "ks"){
@@ -122,7 +122,9 @@ class EmployeeController extends Controller
 
                 $employees = Employee::where($filter)->with('units')->whereHas('units', function($q) use ($postFilter){
                     $q->where($postFilter);
-                })->orderBy("lastName")->paginate(17);
+                })->with(['units' => function($query){
+                    $query->orderBy('recruitmentDate', 'DESC');
+                }])->orderBy("lastName")->paginate(18);
 
                 if($post == "Декан"){
                     $role = "деканов";
@@ -136,11 +138,15 @@ class EmployeeController extends Controller
             }else{
                 $filter[] = ['wwii', 1];
                 $postfix = "являющихся участниками ВОО";
-                $employees = Employee::where($filter)->orderBy("lastName")->paginate(18);
+                $employees = Employee::where($filter)->with(['units' => function($query){
+                    $query->orderBy('recruitmentDate', 'DESC');
+                }])->orderBy("lastName")->paginate(18);
             }
 
         }else{
-            $employees = Employee::where($filter)->orderBy("lastName")->paginate(18);
+            $employees = Employee::where($filter)->with(['units' => function($query){
+                $query->orderBy('recruitmentDate', 'DESC');
+            }])->orderBy("lastName")->paginate(18);
         }
 
         return view('employeesList', [

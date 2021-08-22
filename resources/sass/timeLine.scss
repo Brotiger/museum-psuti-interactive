@@ -34,6 +34,10 @@
     .col-4:last-child{
         padding-left: .5vw;
     }
+
+    .year-container, .month-container, .block.list{
+        cursor: pointer;
+    }
 }
 
 .month-container{

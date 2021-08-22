@@ -16,6 +16,8 @@
                             <th><input filter-field type="text" class="form-control" placeholder="Фамилия" name="lastName" autocomplete="off" value="{{ request()->input('lastName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Имя" name="firstName" autocomplete="off" value="{{ request()->input('firstName') }}"></th>
                             <th><input filter-field type="text" class="form-control" placeholder="Отчество" name="secondName" autocomplete="off" value="{{ request()->input('secondName') }}"></th>
+                            <th><input type="text" class="form-control" placeholder="Должность" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Подразделение" disabled></th>
                             <th width="150"><button class="form-control btn btn-danger" type="reset" id="resetButton"><i class="bi bi-arrow-counterclockwise"></i></button></th><th width="150"><button class="form-control btn btn-primary" id="search"><i class="bi bi-search"></i></button></th>
                         </form>
                     </tr>
@@ -27,7 +29,8 @@
                             <td>{{ $employee->lastName }}</td>
                             <td>{{ $employee->firstName }}</td>
                             <td>{{ $employee->secondName }}</td>
-                            <td colspan="2"></td>
+                            <td>{{ count($employee->units)? $employee->units[0]->post : '' }}</td>
+                            <td colspan='3'>{{ count($employee->units)? $employee->units[0]->unit->fullUnitName : '' }}</td>
                         </tr>
                     @endforeach
                 </tbody>
