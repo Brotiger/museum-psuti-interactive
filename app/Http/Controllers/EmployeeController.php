@@ -42,7 +42,6 @@ class EmployeeController extends Controller
 
         $storageServer .= '/storage/';
 
-        $units = Unit::orderBy('fullUnitName')->get();
         $params = [
             'storageServer' => $storageServer,
             'name' => $name
@@ -137,7 +136,7 @@ class EmployeeController extends Controller
                 }
             }else{
                 $filter[] = ['wwii', 1];
-                $postfix = "являющихся участниками ВОО";
+                $postfix = "являющихся участниками великой отечественной войны";
                 $employees = Employee::where($filter)->with(['units' => function($query){
                     $query->orderBy('recruitmentDate', 'DESC');
                 }])->orderBy("lastName")->paginate(18);

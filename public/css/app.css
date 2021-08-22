@@ -274,7 +274,7 @@ button i {
 }
 .dbList th [disabled] {
   background: #566d99;
-  border-color: #566d99;
+  border-color: #475b81;
   color: #fff;
 }
 .dbList th [disabled]::-webkit-input-placeholder {

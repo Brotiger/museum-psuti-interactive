@@ -24,8 +24,6 @@ class UnitController extends Controller
         }
         $storageServer .= '/storage/';
 
-        $units = Unit::orderBy('fullUnitName')->get();
-
         $params = [
             'storageServer' => $storageServer
         ];

@@ -39,7 +39,7 @@
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Участник ВОВ']) }}" style="display: none">Сотрудники ПГУТИ являющиеся участники ВОВ</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('heroes') }}" style="display: none">Связисты герои</a>
+            <a class="btn" href="{{ route('heroes_list') }}" style="display: none">Связисты герои ВОВ</a>
         </div>
     </div>
 </div>

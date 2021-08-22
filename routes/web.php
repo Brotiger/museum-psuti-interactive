@@ -6,6 +6,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\GraduateController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TimeLineController;
+use App\Http\Controllers\HeroController;
 use App\Http\Controllers\PageController;
 
 /*
@@ -56,6 +57,7 @@ Route::get('/rectors', function(){
     return view("rectors");
 })->name('rectors');
 
-Route::get('/heroes', function(){
-    return view("heroes");
-})->name('heroes');
+Route::prefix('/heroes')->group(function(){
+    Route::get('', [HeroController::class, "heroes_list"])->name('heroes_list');
+    Route::get('/more/{id?}', [HeroController::class, 'hero_more'])->name('hero_more');
+});

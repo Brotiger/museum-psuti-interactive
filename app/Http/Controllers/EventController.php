@@ -24,8 +24,6 @@ class EventController extends Controller
         }
         $storageServer .= '/storage/';
 
-        $events = Event::orderBy('name')->get();
-
         $params = [
             'storageServer' => $storageServer
         ];
