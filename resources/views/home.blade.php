@@ -22,13 +22,13 @@
     <button class="close-modal" close-modal><i class="fas fa-times"></i></button>
     <div>
         <div>
-            <a class="btn" href="{{ route('page', ['alias' => 'branchOrenburg']) }}" style="display: none">Филиал в<br>г. Оренбург</a>
+            <a class="btn" href="{{ route('page', ['alias' => 'branchOrenburg']) }}" style="display: none">Филиал в<br>Оренбурге</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('page', ['alias' => 'branchKazan']) }}" style="display: none">Филиал в<br>г. Казань</a>
+            <a class="btn" href="{{ route('page', ['alias' => 'branchKazan']) }}" style="display: none">Филиал в<br>Казани</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('page', ['alias' => 'branchStavropol']) }}" style="display: none">Филиал в<br>г. Ставрополь</a>
+            <a class="btn" href="{{ route('page', ['alias' => 'branchStavropol']) }}" style="display: none">Филиал в<br>Ставрополе</a>
         </div>
     </div>
 </div>
