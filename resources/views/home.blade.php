@@ -11,10 +11,10 @@
             <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Декан']) }}" style="display: none">Деканы</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Заведующий кафедрой']) }}" style="display: none">Зав. кафедры</a>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Заведующий кафедрой']) }}" style="display: none">Зав. кафедрами</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('employees_list', ['name' => 'ks', 'post' => 'Деректор']) }}" style="display: none">Деректора КС</a>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'ks', 'post' => 'Деректор']) }}" style="display: none">Директора КС</a>
         </div>
     </div>
 </div>
@@ -36,10 +36,10 @@
     <button class="close-modal" close-modal><i class="fas fa-times"></i></button>
     <div>
         <div>
-            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Участник ВОВ']) }}" style="display: none">Сотрудники ПГУТИ являющиеся участники ВОВ</a>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Герои СССР']) }}" style="display: none">Сотрудники ПГУТИ являющиеся героями СССР</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('heroes_list') }}" style="display: none">Связисты герои ВОВ</a>
+            <a class="btn" href="{{ route('heroes_list') }}" style="display: none">Связисты Поволжья - герои СССР</a>
         </div>
     </div>
 </div>
@@ -62,7 +62,7 @@
                 <a class="btn" href="{{ route('rectors') }}">Ректоры</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедры,<br>деректора кс</a>
+                <a class="btn" href="#" id="PDZK">Проректоры,<br>деканы,<br>зав. кафедрами,<br>директора КС</a>
             </div>
         </div>
         <div class="row row-2">
@@ -93,7 +93,7 @@
                 <a class="btn min" href="{{ route('units_list',['name' => 'ks']) }}">Подразделения (КС ПГУТИ)</a>
             </div>
             <div class="col s3">
-                <a class="btn" href="{{ route('museum_3d') }}">Виртуальная экскурсия (Музей имени Попова)</a>
+                <a class="btn" href="{{ route('museum_3d') }}">Виртуальная экскурсия (Музей связи им. А.С. Попова г. Санкт-Петербург)</a>
             </div>
             <div class="col s3">
                 <a class="btn" href="#" id="feats">Подвиги связистов (1941-1945)</a>

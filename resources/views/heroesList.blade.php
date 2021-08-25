@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title')
-    Список связистов героев великой отечественной войны
+    Список связистов Поволжья - героев СССР
 @endsection
 @section('content')
     <div class="container-fluid px-0">
         <div class="pt-4 dbList">
             <div class="mb-3 text-center">
-                <h1>Список связистов героев великой отечественной войны</h1>
+                <h1>Список связистов Поволжья - героев СССР</h1>
             </div>
             <table class="table table-striped">
                 <thead>
