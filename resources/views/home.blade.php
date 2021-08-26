@@ -36,10 +36,10 @@
     <button class="close-modal" close-modal><i class="fas fa-times"></i></button>
     <div>
         <div>
-            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Герои СССР']) }}" style="display: none">Сотрудники ПГУТИ являющиеся героями СССР</a>
+            <a class="btn" href="{{ route('employees_list', ['name' => 'pguty', 'post' => 'Участники ВОВ']) }}" style="display: none">Сотрудники ПГУТИ - участники ВОВ</a>
         </div>
         <div>
-            <a class="btn" href="{{ route('heroes_list') }}" style="display: none">Связисты Поволжья - герои СССР</a>
+            <a class="btn" href="{{ route('heroes_list') }}" style="display: none">Связисты поволжья - герои СССР</a>
         </div>
     </div>
 </div>

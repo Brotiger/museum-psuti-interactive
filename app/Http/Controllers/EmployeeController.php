@@ -116,7 +116,7 @@ class EmployeeController extends Controller
         }
 
         if($post){
-            if($post != "Герои СССР"){
+            if($post != "Участники ВОВ"){
                 $postFilter[] = ['post', "like", $post . '%'];
 
                 $employees = Employee::where($filter)->with('units')->whereHas('units', function($q) use ($postFilter){
@@ -136,7 +136,7 @@ class EmployeeController extends Controller
                 }
             }else{
                 $filter[] = ['wwii', 1];
-                $postfix = "являющихся героями СССР";
+                $postfix = " - участники Великой Отечественной войны";
                 $employees = Employee::where($filter)->with(['units' => function($query){
                     $query->orderBy('recruitmentDate', 'DESC');
                 }])->orderBy("lastName")->paginate(18);
